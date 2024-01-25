@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Icon_ionic-ios-arrow-dropright" width="17.273" height="17.273" viewBox="0 0 17.273 17.273">
+    <defs>
+        <style>
+            .cls-1{fill:#3d4550}
+        </style>
+    </defs>
+    <path id="Trazado_3175" d="M14.651 10.216a.8.8 0 0 1 1.134 0l3.961 3.974a.8.8 0 0 1 .025 1.1l-3.9 3.915a.8.8 0 1 1-1.134-1.129l3.318-3.367-3.4-3.367a.792.792 0 0 1-.004-1.126z" class="cls-1" transform="translate(-7.895 -6.081)"/>
+    <path id="Trazado_3176" d="M3.375 12.011a8.636 8.636 0 1 0 8.636-8.636 8.635 8.635 0 0 0-8.636 8.636zm1.329 0a7.3 7.3 0 0 1 12.473-5.165 7.3 7.3 0 1 1-10.33 10.33A7.245 7.245 0 0 1 4.7 12.011z" class="cls-1" transform="translate(-3.375 -3.375)"/>
+</svg>

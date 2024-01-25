@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10.962" viewBox="0 0 20 10.962">
+    <defs>
+        <style>
+            .cls-1{fill:#d2d2d2}
+        </style>
+    </defs>
+    <g id="lista" transform="translate(-33.2 -71.8)">
+        <path id="Trazado_3022" d="M109.69 73.179a.69.69 0 1 1 0-1.379h15.453a.69.69 0 1 1 0 1.379z" class="cls-1" data-name="Trazado 3022" transform="translate(-72.632)"/>
+        <path id="Trazado_3023" d="M33.89 73.179a.69.69 0 1 1 0-1.379h.827a.69.69 0 1 1 0 1.379z" class="cls-1" data-name="Trazado 3023"/>
+        <path id="Trazado_3024" d="M109.69 187.879a.69.69 0 1 1 0-1.379h15.453a.69.69 0 1 1 0 1.379z" class="cls-1" data-name="Trazado 3024" transform="translate(-72.632 -109.907)"/>
+        <path id="Trazado_3025" d="M33.89 187.879a.69.69 0 0 1 0-1.379h.827a.69.69 0 1 1 0 1.379z" class="cls-1" data-name="Trazado 3025" transform="translate(0 -109.907)"/>
+        <path id="Trazado_3026" d="M109.69 302.479a.689.689 0 1 1 0-1.379h15.453a.689.689 0 1 1 0 1.379z" class="cls-1" data-name="Trazado 3026" transform="translate(-72.632 -219.718)"/>
+        <path id="Trazado_3027" d="M33.89 302.479a.689.689 0 1 1 0-1.379h.827a.689.689 0 1 1 0 1.379z" class="cls-1" data-name="Trazado 3027" transform="translate(0 -219.718)"/>
+    </g>
+</svg>

@@ -1,0 +1,68 @@
+﻿.test Hola
+//- .market-info
+//-     .info-window-top
+//-         .top-title
+//-             .title-left
+//-                 .item-product {{position.type}}
+//-                 .item-design {{position.material}}
+//-             .title-right
+//-                 .item-volume(*ngIf="position.type === 'CONCRETO' || position.type === 'Concreto' || position.type === 'concreto'") {{position.quantity_dispatch}} / {{position.quantity}} {{ position.route }}
+//-                 .item-volume(*ngIf="position.type !== 'CONCRETO' && position.type !== 'Concreto' && position.type !== 'concreto'") {{position.quantity}} {{ position.route }}
+//-         .top-body
+//-             .body-left
+//-                 custom-icon.window-drop(icono="reverse_drop_green")
+//-                 .window-drop-number([ngClass]="{'short' : position.order < 10, 'large' : position.order >= 10 }") {{ position.order }}
+//-                 custom-icon.window-drop(icono="{{ position.greenIcon }}")
+//-                 .order-message {{position.order_message}}
+//-             .body-right
+//-                 //- .body-top Llegada estimada
+//-                 //- .body-bottom 3:15 - 4:10 PM
+//-     //- .info-window-mid
+//-     //-     .container-start
+//-     //-         custom-icon.window-picture(icono="window_profile")
+//-     //-         .container-mid
+//-     //-             .mid-top Daniel Roberto Perez (T7X903)
+//-     //-             .mid-bottom Transportista
+//-     //-     custom-icon.whassap(icono="whassap")
+//-     .info-window-bottom
+//-         .bottom-top
+//-             .strong-text Detalles del despacho
+//-             .small-text Placa del vehículo: {{position.nro_material}}
+//-             .small-text(*ngIf="position.type === 'CONCRETO' || position.type === 'Concreto' || position.type === 'concreto'") Volumen {{position.order_message}}: {{ position.quantity_dispatch }} {{ position.route }} | Despacho {{ position.position }} de {{ position.dispatch_order_length }}
+//-             .small-text(*ngIf="position.type !== 'CONCRETO' && position.type !== 'Concreto' && position.type !== 'concreto'") Volumen {{position.order_message}}: {{ position.quantity }} {{ position.route }}
+//-             .small-text Volumen total del pedido: {{position.quantity}} {{ position.route }}
+//-         //- .bottom-mid
+//-         //-     .slider-back
+//-         //-         .slider-front.green-front([ngStyle]="{'width' : '60%', 'height' : '2px' }")
+//-         //-         custom-icon.small-slider-circle(icono="small_slider_circle")
+//-         //-         .circle.green-circle([ngStyle]="{'top' : '-10px', 'left' : '60%' }")
+//-         //-         custom-icon.ping(icono="pin")
+//-         //-     .slider-text
+//-         //-         .info-slider Dino Chiclayo
+//-         //-         .info-slider Obra
+//-         .bottom-bottom
+//-             .container-left.finalized
+//-                 .container-trails
+//-                     custom-icon.trail(icono="trail")
+//-                     custom-icon.trail-suspension(icono="trail_suspension")
+//-                     custom-icon.trail-suspension(icono="trail_suspension")
+//-                     custom-icon.trail-suspension(icono="trail_suspension")
+//-                 .container-trails
+//-                     custom-icon.basic-ping(icono="pin2")
+//-             .container-right
+//-                 .container-progress
+//-                     .progress-left
+//-                         .progress-info.progress-space
+//-                             .top-info
+//-                                 .ubication
+//-                                     .ubication-first ORIGEN:
+//-                                     .ubication-second {{position.origin}}
+//-                                 .time {{position.origin_time}}
+//-                             //- .bottom-info {{position.work_address}}
+//-                         .progress-info
+//-                             .top-info
+//-                                 .ubication
+//-                                     .ubication-first DESTINO:
+//-                                     .ubication-second {{position.destiny}}
+//-                                 .time {{position.destiny_time}}
+//-                             .bottom-info {{position.work_address}}

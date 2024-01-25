@@ -1,0 +1,5 @@
+.content
+    p.message {{ data.message || '' }}
+    //- p.sub.message(*ngIf="data.sub_message") {{ data.sub_message || '' }}
+    img([class.d-none]="!data.success", src="./assets/images/svg/download-wait.gif")
+    custom-icon.icon_error([class.d-none]="data.success", icono="ico_warning", size="60px")

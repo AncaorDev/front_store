@@ -1,0 +1,170 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  xmd: 850px,
+  lg: 992px,
+  xl: 1024px,
+  xxl: 1280px,
+  xxlhome: 1366px,
+  xxxl: 1440px,
+  xxxxl: 1920px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  xmd: 850px,
+  lg: 960px,
+  xl: 1024px,
+  xxl: 1280px,
+  xxlhome: 1366px,
+  xxxl: 1440px,
+  xxxxl: 1900px
+);
+
+// General Breakpoints Redesign(Width/Height)
+// Mobile mini:     320x568     // Ocasional y no obligatorio, solo en caso que se requiera para alguna acotación de diseño.
+// Mobile:          360x640
+// Tablet:          768x1024
+// Desktop mini:    1024x768
+// Desktop:         1440x1024   // Ocasional y no obligatorio, solo en caso que se requiera para alguna acotación de diseño.
+// Desktop large:   1920x1080   // Ocasional y no obligatorio, solo en caso que se requiera para alguna acotación de diseño.
+
+// Onboarding extra Breakpoints Redesign(Width/Height)
+// Desktop mini(Big):    1280x720
+// Desktop mini(Large):  1366x768
+// Desktop(Big):         1536x864
+
+// Breakpoints Redesign(Horizontal/Width)
+// Movil-Tall: 360px - 767.9px
+// Tablet: 768px - 1023.9px
+// Desktop mini: >= 1024px
+//////////////////////////////////////////////
+$redesign-breakpoints: (
+  xs: 320, // Extra small devices (portrait phones)
+  sm: 576px, // Small devices (landscape phones, 576px and up)
+  md: 768px, // Medium devices (tablets, 768px and up)
+  lg: 992px, // Large devices (desktops, 992px and up)
+  xl: 1024px, // Large devices custom (desktops, 1024px and up)
+  xxl: 1200px, // Extra large devices (large desktops, 1200px and up)
+  xxxl: 1440px, // Screen (1440px and up)
+  xxxxl: 1920px // Large screen(1920px and up)
+);
+
+/*** Breakpoints Redesign Class ***/
+.movil {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: block;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: none;
+    }
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}
+
+.movil-tablet {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: block;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: block;
+    }
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}
+
+.tablet {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: none;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: block;
+    }
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}
+
+.tablet-large {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: none;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: block;
+    }
+    @media (min-width: 1024px) and (max-width: 1439.9px) {
+        display: block;
+    }
+    @media (min-width: 1440px) {
+        display: none;
+    }
+}
+
+.tablet-web {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: none;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: block;
+    }
+    @media (min-width: 1024px) {
+        display: block;
+    }
+}
+
+.web {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: none;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: none;
+    }
+    @media (min-width: 1024px) {
+        display: block;
+    }
+}
+
+.web-large {
+    @media (min-width: 0px) and (max-width: 767.9px) {
+        display: none;
+    }
+    @media (min-width: 768px) and (max-width: 1023.9px) {
+        display: none;
+    }
+    @media (min-width: 1024px) and (max-width: 1439.9px) {
+        display: none;
+    }
+    @media (min-width: 1440px) {
+        display: block;
+    }
+}
+/*** End Breakpoints Redesign Class ***/
+
+/*** Breakpoints get screen info ***/
+// getScreenSize() {
+//     // Get the size of the device screen
+//     const screenWidth = screen.width;
+//     const screenHeight = screen.height;
+
+//     // Get the browser window size
+//     const windowWidth = window.innerWidth;
+//     const windowHeight = window.innerHeight;
+
+//     // Get the size of the entire webpage
+//     const pageWidth  = document.documentElement.scrollWidth;
+//     const pageHeight = document.documentElement.scrollHeight;
+
+//     return {
+//         screenWidth,
+//         screenHeight,
+//         windowWidth,
+//         windowHeight,
+//         pageWidth,
+//         pageHeight
+//     }
+// }
+/*** End Breakpoints get screen info ***/

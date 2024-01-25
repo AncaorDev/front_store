@@ -1,0 +1,111 @@
+{
+    "APP" : {
+        "close"         : "Close",
+        "close_session" : "Sign Out",
+        "notif_pending" : "You have pending notifications."
+    },
+
+    "NOTIFICATION" : {
+        "title" : "CONFIGURACIÓN",
+        "sub_title" : "Ajustes y configuraciones"
+    },
+
+    "SCHEDULE" : {
+        "title" : "Programming",
+        "schedule_request" : "REQUESTED PROGRAMS",
+        "view" : {
+            "list"      : "List",
+            "calendar"  : "Calendar",
+            "tutorial"  : "Tutorial"
+        },
+        "new_schedule"  : "CREATE NEW PROGRAMMING",
+        "new"           : "NEW",
+        "not_found"     : "There are no schedules.",
+        "msj_new_schedule" : "Click on \"Create New Schedule\" to begin.",
+
+        "msj_not_confirm"   : "You have unconfirmed schedules",
+        "submsj_not_confirm": "What do you want to do?",
+
+        "concrete"          : "Concrete",
+        "time"              : "Hour",
+        "frequency"         : "Frequency",
+        "volume"            : "Volume",
+        "supply"            : "Supply",
+        "structure"         : "Structure",
+        "observation"       : "Observations",
+        "time_remaining_edt": "Remaining time to edit",
+        "time_remaining"    : "Time remaining",
+        "more"              : "more...",
+
+        "discard_save"      : "DISCARD SAVED",
+        "resume_save"       : "RETURN SAVED",
+        "msj_delete"        : "Are you sure you want to delete this schedule?"
+    },
+
+    "SCHEDULE_WORK" : {
+        "title"             : "Work",
+        "msj_select_work"   : "Select the work for which you want to schedule the dispatch:"
+    },
+
+    "SCHEDULE_ADD" : {
+        "title"             : "Data",
+        "work"              : "WORK:",
+
+        "date_supply"       : "Fecha suministro",
+        "concrete"          : "Concreto",
+        "time"              : "Hora tentativa de despacho (24h)",
+        "frequency"         : "Frecuencia deseada",
+        "volume"            : "Volumen requerido (m3)",
+        "supply"            : "Tipo de suministro",
+        "structure"         : "Tipo de estructura",
+        "reply"             : "¿Repetir programación?",
+        "observation"       : "Observaciones",
+        "person_contact"    : "Persona contacto",
+        "phone"             : "Teléfono",
+        "select_date"       : "Selecciona una fecha",
+        "select_dates"      : "Seleccionar fechas",
+
+        "enter_date"        : "Ingrese una fecha",
+        "select_option"     : "Selecione una opción",
+        "enter_time"        : "Escriba una hora",
+        "select_frequency"  : "Selecciona la frecuencia",
+        "select_concrete"   : "Selecciona el concreto",
+        "time_valid"        : "Escriba una hora válida",
+
+        "ph_hour"           : "Hora",
+        "ph_min"            : "Min",
+
+        "msj_repeat"        : "Repeat schedule allows you to clone all the data of the current schedule on any date you want, with the possibility of editing each data separately."
+    },
+
+    "DOCUMENTS" : {
+        "title" : "Documents",
+        "subtitle" : "LIST OF DOCUMENTS",
+        "msj_select_work" : "Select the work to see the available documents",
+        "download" : "Download",
+        "download_all" : "Download all",
+        "all" : "All",
+        "no_documents" : "We haven't found documents available for this work, please try again",
+        "no_select" : "Please select a work",
+        "msj_modal" : "The certificate is emited 28 days after dispatch",
+        "certificate" : "Certificate",
+        "certificate_inavailable" : "Certificate not available",
+        "travel" : "Travel",
+        "guide" : "Guide",
+        "dispatch" : "Dispatch",
+        "filter" : "Filter",
+        "clean" : "Clean",
+        "plaque" : "Plaque",
+        "volume" : "Volume"
+    },
+
+    "GENERIC" : {
+        "select"        : "To select",
+        "cancel"        : "Cancel",
+        "save"          : "Save",
+        "new_schedule"  : "NEW PROGRAMMING",
+        "edit_schedule" : "EDIT PROGRAMMING",
+        "calendar"      : "Calendar",
+        "tutorial"      : "Tutorial"
+    }
+}

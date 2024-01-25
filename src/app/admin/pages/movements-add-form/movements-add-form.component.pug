@@ -1,0 +1,71 @@
+form.content_card(*ngIf="formAdd", [formGroup]="formAdd")
+	mat-card
+		button.button_remove(mat-icon-button aria-label="Editar", (click)="removeForm()", *ngIf="showRemove")
+			mat-icon close
+		.row
+			.col-12.col-sm-6
+				p.text-form Producto
+				.field-control.select-control
+					select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="id_product" placeholder="Seleccione el producto")
+						option(value="null") Selecciona el tipo de producto
+						option(*ngFor="let product of productList;", [value]="product.id_product") {{ product.description }}
+				span.text-invalid(*ngIf="id_product.errors && id_product.touched")
+					ng-template(*ngIf="id_product.errors.required; then errRequired")
+					ng-template(#errRequired) Selecione una opción
+
+			.col-12.col-sm-6
+				p.text-form Estado
+				.field-control.select-control
+					select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="state" placeholder="Seleccione el estado")
+						option(value="null") Seleccione el estado
+						option(*ngFor="let state of stateList;", [value]="state.id_state") {{ state.description }}
+				span.text-invalid(*ngIf="state.errors && state.touched")
+					ng-template(*ngIf="state.errors.required; then errRequired")
+					ng-template(#errRequired) Selecione una opción
+
+			.col-12.col-sm-6
+				p.text-form Tipo Movimiento
+				.field-control.select-control
+					select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="type_movement" placeholder="Seleccione el tipo de movimiento")
+						option(value="null") Seleccione el tipo de movimiento
+						option(*ngFor="let typeMovement of typeMovementList;", [value]="typeMovement.id_type_movement") {{ typeMovement.description }}
+				span.text-invalid(*ngIf="type_movement.errors && type_movement.touched")
+					ng-template(*ngIf="type_movement.errors.required; then errRequired")
+					ng-template(#errRequired) Selecione una opción
+
+			.col-12.col-sm-6
+				p.text-form Situación
+				.field-control.select-control
+					select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="situation" placeholder="Seleccione la situación")
+						option(value="null") Seleccione la situación
+						option(*ngFor="let situation of situationList;", [value]="situation.id_state") {{ situation.description }}
+				span.text-invalid(*ngIf="situation.errors && situation.touched")
+					ng-template(*ngIf="situation.errors.required; then errRequired")
+					ng-template(#errRequired) Selecione una opción
+
+			.col-12.col-sm-6
+				p.text-form([ngClass]="{'status-disabled': disabledCombo}") Cantidad
+				.field-control
+					input.form-control(onlyNumber, type="text" formControlName="amount" placeholder="Escriba la cantidad")
+				span.text-invalid(*ngIf="amount.errors && amount.touched")
+					ng-template(*ngIf="amount.errors.required; then errRequired else otherError")
+					ng-template(#errRequired) Ingrese volumen
+
+			.col-12.col-sm-6
+				p.text-form([ngClass]="{'status-disabled': disabledCombo}") Observación
+				.field-control
+					input.form-control(type="text" formControlName="observation" placeholder="Escriba la cantidad")
+				span.text-invalid(*ngIf="observation.errors && observation.touched")
+					ng-template(*ngIf="observation.errors.required; then errRequired else otherError")
+					ng-template(#errRequired) Ingrese observación
+
+			.col-12.col-sm-6
+				p.text-form([ngClass]="{'status-disabled': disabledCombo}") Fecha
+				.field-control
+					input.form-control(matInput, type="text", formControlName="date", placeholder="Escriba la fecha", [matDatepicker]="picker")
+					mat-datepicker-toggle.toogle_date(matIconSuffix, [for]="picker")
+					mat-datepicker(#picker, [calendarHeaderComponent]="exampleHeader")
+				span.text-invalid(*ngIf="date.errors && date.touched")
+					ng-template(*ngIf="date.errors.required; then errRequired else otherError")
+					ng-template(#errRequired) Ingrese la fecha
+

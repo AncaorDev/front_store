@@ -1,0 +1,1049 @@
+cs-calendar {
+    // PERSONALIZADO
+    &.cs-small {
+        .cal-month-view .cal-days {
+            border: 0px;
+        }
+
+        .cal-month-view .cal-day-cell:not(:last-child) {
+            border: 0px;
+        }
+
+        .cal-month-view .cal-day-cell {
+            min-height: auto;
+            margin: 6px 0;
+        }
+
+        .cal-month-view .cal-days .cal-cell-row {
+            border-bottom: 0px;
+        }
+
+        .cal-month-view .cal-cell-row .cal-cell:hover {
+            background: transparent;
+        }
+
+        .cal-month-view {
+            margin: 0 auto;
+            font-size: 11px !important;
+        }
+    }
+}
+
+// CALENDARIO PANTALLA PROGRAMACIÓN
+app-programming {
+    .cal-disabled, .bg-gris {
+        @include breakpoint('xs') {
+
+        }
+        @include breakpoint('sm') {
+
+        }
+        @include breakpoint('md') {
+
+        }
+        @include breakpoint('lg') {
+            background-color: rgba(239, 239, 239, 0.45);
+        }
+        .cal-day-custom {
+            @include breakpoint('xs') {
+                opacity: .4;
+            }
+            @include breakpoint('sm') {
+                opacity: .4;
+            }
+            @include breakpoint('lg') {
+                opacity: unset;
+            }
+        }
+    }
+    .cal-month-view .cal-days .cal-cell-row {
+        @include breakpoint('xs') {
+            border-bottom: 0;
+        }
+        @include breakpoint('sm') {
+            border-bottom: 0;
+        }
+        @include breakpoint('md') {
+            border-bottom: 0;
+        }
+        @include breakpoint('lg') {
+            border-bottom: 1px solid rgba(0, 0, 0, .2);
+        }
+    }
+    .cal-cell-row .cal-cell:hover {
+        @include breakpoint('xs') {
+            background-color : transparent !important;
+        }
+        @include breakpoint('sm') {
+            background-color : transparent !important;
+        }
+        @include breakpoint('lg') {
+            background-color : $gris_claro !important;
+        }
+    }
+
+    .header-month {
+        @include breakpoint('xs') {
+            padding: 20px 0;
+            margin: 0;
+        }
+        @include breakpoint('sm') {
+        }
+        @include breakpoint('md') {
+            padding: 10px 30px;
+        }
+        @include breakpoint('lg') {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        padding: 10px 30px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        span {
+            @include breakpoint('xs') {
+                @include fontSize(14px);
+            }
+            @include breakpoint('sm') {
+                @include fontSize(16px);
+            }
+            @include breakpoint('md') {
+                @include fontSize(18px);
+            }
+            cursor: pointer;
+            font-family: 'AvenirMedium';
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.39;
+            letter-spacing: normal;
+            text-transform: uppercase;
+            &.current {
+                color: $red;
+            }
+            &.next {
+                opacity: 0.4;
+                color: $gris;
+            }
+            &.separator {
+                padding: 6px;
+            }
+        }
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(45deg);
+            margin: 0 8px;
+        }
+    }
+
+    .cal-month-view {
+
+        border-radius: 6px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+        border: solid 1px #d2d2d2;
+        border-radius: 6px;
+        margin: 0 auto;
+        font-size: 11px !important;
+
+        @include  breakpoint('xs') {
+            padding: 0;
+        }
+
+        @include  breakpoint('sm') {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        @include  breakpoint('md') {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .cal-header {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .cal-days {
+            @include breakpoint('xs') {
+                border: 0px;
+            }
+
+            @include breakpoint('sm') {
+                border: 0px;
+            }
+        }
+
+        .cal-header {
+            display: flex;
+            height: 50px;
+            .cal-cell {
+                display: flex;
+                @include breakpoint('xs') {
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 0;
+                }
+                @include breakpoint('sm') {
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 0;
+                }
+                @include breakpoint('md') {
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 10px;
+                }
+                @include breakpoint('lg') {
+                    align-items: flex-start;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        .cal-day-cell {
+            @include breakpoint('xs') {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                margin: 2px 0;
+            }
+            @include breakpoint('sm') {
+                min-height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+            }
+            @include breakpoint('md') {
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+            }
+            @include breakpoint('lg') {
+                min-height: 100px;
+                margin: 0 auto;
+                display:block;
+            }
+        }
+    }
+
+    mwl-calendar-month-cell {
+        @include breakpoint('lg') {
+            &:hover {
+                .content-hover {
+                    .elipse {
+                        display: flex;
+                    }
+                }
+            }
+        }
+        .content-hover {
+            cursor: pointer;
+            position: absolute;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            .elipse {
+                width: 30px;
+                height: 30px;
+                border: solid 3px $red;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                display: none;
+                span {
+                    width: 15px;
+                    height: 30px;
+                    font-family: 'AvenirBlack';
+                    font-size: 22px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.36;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: $red;
+                }
+            }
+        }
+        border-right: none !important;
+        position: relative;
+
+        .cal-out-month {
+            background: $red !important;
+        }
+
+        &.cal-today {
+            @include breakpoint('xs') {
+                border-top: 0;
+            }
+            @include breakpoint('sm') {
+                border-top: 0;
+            }
+            @include breakpoint('md') {
+                border-top: 0;
+            }
+            @include breakpoint('lg') {
+                border-top: 4px solid $red;
+            }
+            .cal-day-custom {
+                @include breakpoint('xs') {
+                    background: $red;
+                    color: white;
+                }
+                @include breakpoint('sm') {
+                    background: $red;
+                    color: white;
+                }
+                @include breakpoint('md') {
+                    background: $red;
+                    color: white;
+                }
+                @include breakpoint('lg') {
+                    background: none;
+                    color: var(--gris-oscuro);
+                }
+            }
+            .point-event {
+                @include breakpoint('xs') {
+                    background: white;
+                }
+                @include breakpoint('sm') {
+                    background: white;
+                }
+                // @include breakpoint('lg') {
+                //     background: transparent;
+                // }
+            }
+        }
+
+        .cal-day-custom {
+            width: 10px;
+            height: 24px;
+            font-family: 'AvenirBook';
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.39;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--gris-oscuro);
+            margin-left: 10px;
+            @include breakpoint('xs') {
+                @include fontSize(11px);
+                width: 28px;
+                height: 28px;
+                margin-left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+            }
+            @include breakpoint('sm') {
+                width: 35px;
+                height: 35px;
+
+                margin-left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+                @include fontSize(11px);
+            }
+            @include breakpoint('md') {
+                width: 45px;
+                height: 45px;
+
+                margin-left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include fontSize(11px);
+            }
+            @include breakpoint('lg') {
+                @include fontSize(18px);
+            }
+        }
+
+        .triangle {
+            position: relative;
+            margin: 3em;
+            padding: 1em;
+            box-sizing: border-box;
+            background: #bada55;
+            box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+          }
+          .triangle::after{
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              margin-left: -0.5em;
+              bottom: -2em;
+              left: 50%;
+              box-sizing: border-box;
+
+              border: 1em solid black;
+              border-color: transparent transparent #bada55 #bada55;
+
+              transform-origin: 0 0;
+              transform: rotate(-45deg);
+
+              box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+            }
+        .point-event {
+            @include breakpoint('xs') {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                position: absolute;
+                margin-top: 12px;
+                background: $red;
+            }
+            @include breakpoint('sm') {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                position: absolute;
+                margin-top: 12px;
+                background: $red;
+            }
+            @include breakpoint('lg') {
+                display: none;
+            }
+        }
+
+        .cal-event-content {
+            padding-left: 0px;
+            margin-left: 24px;
+            margin-bottom: 0px;
+            margin-top: 4px;
+            margin: 0 auto;
+            @include breakpoint('xs') {
+               display: none;
+            }
+            @include breakpoint('sm') {
+                display: none;
+            }
+            @include breakpoint('lg') {
+                display: block;
+            }
+            .content-item {
+                @include breakpoint('xs') {
+                    display: none;
+                }
+                @include breakpoint('sm') {
+                    display: none;
+                }
+                @include breakpoint('md') {
+                    display: none;
+                }
+                @include breakpoint('lg') {
+                    display: flex;
+                }
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                padding-left: 18px;
+                span {
+                    font-size: 11px;
+                    color: $red;
+                    font-family: 'AvenirBlack';
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.36;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+            .custom-item {
+                @include breakpoint('lg') {
+                    width: 60px;
+                }
+                @include breakpoint('xl') {
+                    width: 90px;
+                }
+                height: 15px;
+                font-family: 'AvenirMedium';
+                font-size: 11px;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.36;
+                letter-spacing: normal;
+                text-align: left;
+                color: $red;
+                margin-bottom: 10px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .custom-item::before {
+                content: "\2022";
+                color: $red;
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+                position: absolute;
+            }
+        }
+    }
+}
+
+// CALENDARIO PANTALLA DASHBOARD
+app-dashboard {
+    .cal-disabled, .bg-gris {
+        .cal-day-custom {
+            @include breakpoint('xs') {
+                opacity: .4;
+            }
+            @include breakpoint('sm') {
+                opacity: .4;
+            }
+        }
+    }
+    .cal-month-view .cal-days .cal-cell-row {
+        @include breakpoint('xs') {
+            border-bottom: 0;
+        }
+        @include breakpoint('sm') {
+            border-bottom: 0;
+        }
+        @include breakpoint('md') {
+            border-bottom: 0;
+        }
+    }
+    .cal-cell-row .cal-cell:hover {
+        @include breakpoint('xs') {
+            background-color : transparent !important;
+        }
+        @include breakpoint('sm') {
+            background-color : transparent !important;
+        }
+    }
+
+    .header-month {
+        @include breakpoint('xs') {
+            padding: 20px 0;
+            margin: 0;
+        }
+        @include breakpoint('sm') {
+        }
+        @include breakpoint('md') {
+            padding: 10px 30px;
+        }
+        padding: 10px 30px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        span {
+            @include breakpoint('xs') {
+                @include fontSize(14px);
+            }
+            @include breakpoint('sm') {
+                @include fontSize(16px);
+            }
+            @include breakpoint('md') {
+                @include fontSize(18px);
+            }
+            cursor: pointer;
+            font-family: 'AvenirMedium';
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.39;
+            letter-spacing: normal;
+            text-transform: uppercase;
+            &.current {
+                color: $red;
+            }
+            &.next {
+                opacity: 0.4;
+                color: $gris;
+            }
+            &.separator {
+                padding: 6px;
+            }
+        }
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(45deg);
+            margin: 0 8px;
+        }
+    }
+
+    .cal-month-view {
+
+        border-radius: 6px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+        border: solid 1px #d2d2d2;
+        border-radius: 6px;
+        margin: 0 auto;
+        font-size: 11px !important;
+
+        @include  breakpoint('xs') {
+            padding: 0;
+        }
+
+        @include  breakpoint('sm') {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        @include  breakpoint('md') {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .cal-header {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .cal-days {
+            @include breakpoint('xs') {
+                border: 0px;
+            }
+
+            @include breakpoint('sm') {
+                border: 0px;
+            }
+        }
+
+        .cal-header {
+            display: flex;
+            height: 50px;
+            .cal-cell {
+                display: flex;
+                @include breakpoint('xs') {
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 0;
+                }
+                @include breakpoint('sm') {
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 0;
+                }
+                @include breakpoint('md') {
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        .cal-day-cell {
+            @include breakpoint('xs') {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                margin: 2px 0;
+            }
+            @include breakpoint('sm') {
+                min-height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+            }
+            @include breakpoint('md') {
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+            }
+        }
+    }
+
+    mwl-calendar-month-cell {
+        .content-hover {
+            cursor: pointer;
+            position: absolute;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            .elipse {
+                width: 30px;
+                height: 30px;
+                border: solid 3px $red;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                display: none;
+                span {
+                    width: 15px;
+                    height: 30px;
+                    font-family: 'AvenirBlack';
+                    font-size: 22px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.36;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: $red;
+                }
+            }
+        }
+        border-right: none !important;
+        position: relative;
+
+        .cal-out-month {
+            background: $red !important;
+        }
+
+        &.cal-today {
+            @include breakpoint('xs') {
+                border-top: 0;
+            }
+            @include breakpoint('sm') {
+                border-top: 0;
+            }
+            @include breakpoint('md') {
+                border-top: 0;
+            }
+            .cal-day-custom {
+                font-family: 'AvenirBlack';
+                @include breakpoint('xs') {
+                    background: $red;
+                    color: white;
+                }
+                @include breakpoint('sm') {
+                    background: $red;
+                    color: white;
+                }
+                @include breakpoint('md') {
+                    background: $red;
+                    color: white;
+                }
+            }
+            .point-event {
+                @include breakpoint('xs') {
+                    background: white;
+                }
+                @include breakpoint('sm') {
+                    background: white;
+                }
+            }
+        }
+
+        .cal-day-custom {
+            width: 10px;
+            height: 24px;
+            font-family: 'AvenirBook';
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.39;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--gris-oscuro);
+            margin-left: 10px;
+            @include breakpoint('xs') {
+                @include fontSize(11px);
+                width: 28px;
+                height: 28px;
+                margin-left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+            }
+            @include breakpoint('sm') {
+                width: 35px;
+                height: 35px;
+
+                margin-left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+                @include fontSize(11px);
+            }
+            @include breakpoint('md') {
+                width: 45px;
+                height: 45px;
+
+                margin-left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include fontSize(11px);
+            }
+        }
+
+        .triangle {
+            position: relative;
+            margin: 3em;
+            padding: 1em;
+            box-sizing: border-box;
+            background: #bada55;
+            box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+          }
+          .triangle::after{
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              margin-left: -0.5em;
+              bottom: -2em;
+              left: 50%;
+              box-sizing: border-box;
+
+              border: 1em solid black;
+              border-color: transparent transparent #bada55 #bada55;
+
+              transform-origin: 0 0;
+              transform: rotate(-45deg);
+
+              box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+            }
+        .point-event {
+            @include breakpoint('xs') {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                position: absolute;
+                //margin-top: 12px;
+                margin-left: 15px;
+                background: $red;
+            }
+            @include breakpoint('sm') {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                position: absolute;
+                //margin-top: 12px;
+                margin-left: 15px;
+                background: $red;
+            }
+            @include breakpoint('md') {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                position: absolute;
+                //margin-top: 12px;
+                margin-left: 19px;
+                background: $red;
+            }
+        }
+
+        .cal-event-content {
+            padding-left: 0px;
+            margin-left: 24px;
+            margin-bottom: 0px;
+            margin-top: 4px;
+            margin: 0 auto;
+            @include breakpoint('xs') {
+               display: none;
+            }
+            @include breakpoint('sm') {
+                display: none;
+            }
+            .content-item {
+                @include breakpoint('xs') {
+                    display: none;
+                }
+                @include breakpoint('sm') {
+                    display: none;
+                }
+                @include breakpoint('md') {
+                    display: none;
+                }
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                padding-left: 18px;
+                span {
+                    font-size: 11px;
+                    color: $red;
+                    font-family: 'AvenirBlack';
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.36;
+                }
+            }
+            .custom-item {
+                height: 15px;
+                font-family: 'AvenirMedium';
+                font-size: 11px;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.36;
+                letter-spacing: normal;
+                text-align: left;
+                color: $red;
+                margin-bottom: 10px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .custom-item::before {
+                content: "\2022";
+                color: $red;
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+                position: absolute;
+            }
+        }
+    }
+}
+
+
+.calendar-small {
+    &.movil {
+        position: relative !important;
+    }
+    padding: 14px;
+    max-width: 344px;
+    position: absolute;
+    width: 344px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    background: white;
+    @include breakpoint('xs') {
+        border-radius: 6px;
+    }
+    @include breakpoint('sm') {
+        border-radius: 6px;
+    }
+    @include breakpoint('lg') {
+        border-radius: 0;
+    }
+    &.confirm  {
+        position: absolute;
+        right: 0;
+        top: -80px;
+    }
+    &.portal1 {
+        left: -55px;
+        top: -23px;
+        .footer-cs-calendar {
+            @include breakpoint('xs') {
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+            @include breakpoint('sm') {
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+            @include breakpoint('lg') {
+                margin-top: 8px;
+                margin-bottom: 18px;
+            }
+            &.right {
+                text-align: right;
+            }
+        }
+        @include breakpoint('xs') {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        @include breakpoint('sm') {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        @include breakpoint('md') {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        @include breakpoint('lg') {
+            position: absolute;
+            left: -55px;
+            top: -23px;
+        }
+    }
+
+    &.portal2 {
+        .footer-cs-calendar {
+            @include breakpoint('xs') {
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+            @include breakpoint('sm') {
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+            @include breakpoint('lg') {
+                margin-top: 18px;
+                margin-bottom: 0;
+            }
+        }
+        @include breakpoint('xs') {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        @include breakpoint('sm') {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        @include breakpoint('lg') {
+            position: absolute;
+            bottom: -54px;
+            left: -162px;
+            display: block;
+        }
+    }
+
+    cs-calendar {
+        display: block;
+        border: solid 1px #d2d2d2;
+        padding: 1px;
+    }
+    .footer-cs-calendar {
+        margin-top: 18px;
+        .text-calend {
+            @include breakpoint('xs') {
+                border: 0;
+            }
+            @include breakpoint('sm') {
+                border: 0;
+            }
+            @include breakpoint('lg') {
+                border-radius: 6px;
+                border: solid 1px #d2d2d2;
+            }
+            button {
+                @include breakpoint('xs') {
+                    display: none;
+                }
+                @include breakpoint('sm') {
+                    display: none;
+                }
+                @include breakpoint('lg') {
+                    display: block;
+                }
+            }
+        }
+    }
+}

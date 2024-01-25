@@ -1,0 +1,263 @@
+.info-window-top
+    mat-tab-group(mat-align-tabs="center", (selectedTabChange)="onTab($event)", [selectedIndex]="actualTab")
+        mat-tab(label="En camino")
+            mat-accordion
+                div(*ngIf="showErrorPath", style="width=100%")
+                    .text-error {{ errorMessagePath }}
+                div(*ngIf="!showErrorPath", style="width=100%")
+                    div(*ngIf="showErrorPathSelected", style="width=100%")
+                        .text-error {{ errorMessagePathSelected }}
+                    div(*ngIf="!showErrorPathSelected", style="width=100%")
+                        .container-order(*ngFor="let orderItems of arrayPathSelected.order_items; let r = index")
+                            mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                mat-expansion-panel-header.main
+                                    mat-panel-title
+                                        custom-icon.mixer([icono]="orderItems.order_items_img")
+                                        .header-product {{ orderItems.order_items_type }}
+                                .container-order(*ngFor="let itemId of orderItems.order_items_id; let k = index")
+                                    .container-product(*ngFor="let dataId of itemId.id_data; let q = index")
+                                        mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                            mat-expansion-panel-header.second(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                mat-panel-title
+                                                    .container-superior(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                        .design([ngClass]="{'design-border' : dataId.material.length > 0}") {{ dataId.material }}
+                                                        //- .divider(*ngIf="dataId.material.length > 0") |
+                                                        .volume(*ngIf="dataId.quantity.length > 0") {{ dataId.quantity }}
+                                                        .volume_unit(*ngIf="dataId.unit.length > 0") {{ dataId.unit }}
+                                            .container-inferior.path
+                                                .container-info-inferior
+                                                    .container-left.path
+                                                        .container-drops(*ngFor="let tracking of dataId.tracking; let j = index", (click)="onPath(k, j, 'new', 'selected', tracking.checked)")
+                                                            custom-icon.drop([icono]="tracking.img")
+                                                            .drop-number([ngClass]="{'short' : tracking.order < 10, 'large' : tracking.order >= 10 }") {{ tracking.order }}
+                                                            .drop-divider.path(*ngIf="(j + 1 < dataId.tracking.length) && (orderItems.order_items_type !== 'RAPIMIX' && orderItems.order_items_type !== 'Rapimix' && orderItems.order_items_type !== 'rapimix')")
+                                                    .container-right
+                                                        .container-progress.path(*ngFor="let tracking of dataId.tracking; let j = index", [ngClass]="{'border-auxiliar' : dataId.tracking.length > 1 && j + 1 != dataId.tracking.length }")
+                                                            .progress-left.path((click)="onPath(k, j, 'new', 'selected', tracking.checked)")
+                                                                .left-info.path(*ngIf="itemId.order_items_type === 'CONCRETO' || itemId.order_items_type === 'Concreto' || itemId.order_items_type === 'concreto'") {{ tracking.quantity_dispatch }} {{ tracking.route }} | Despacho {{ tracking.order }} de {{ dataId.tracking.length }}
+                                                                .left-info.path(*ngIf="itemId.order_items_type !== 'CONCRETO' && itemId.order_items_type !== 'Concreto' && itemId.order_items_type !== 'concreto'") {{ tracking.quantity }} {{ tracking.route }} | {{ dataId.material }}
+                                                                .left-slider
+                                                                    .slider-back
+                                                                        .slider-front.black-front([ngStyle]="{'width' : tracking.progress, 'height' : '2px' }")
+                                                                        custom-icon.small-slider-circle(icono="small_slider_circle")
+                                                                        .circle.black-circle([ngStyle]="{'top' : '-10px', 'left' : tracking.progress }")
+                                                            .progress-right((click)="onCheck(k, q, j, true)")
+                                                                custom-icon.checkbox(*ngIf="tracking.checked", icono="check_checked")
+                                                                custom-icon.checkbox(*ngIf="!tracking.checked", icono="check_unchecked")
+                    .container-intermediate(*ngIf="showPathIntermediate", (click)="changePathInfo()")
+                        .text-intermediate {{ intermediatePathText }}
+                        custom-icon.arrow(*ngIf="!showMorePathInfo", icono="arrow_down_redesign2")
+                        custom-icon.arrow(*ngIf="showMorePathInfo", icono="arrow_top_redesign")
+                    div(*ngIf="showMorePathInfo", style="width=100%")
+                        .container-order(*ngFor="let orderItems of arrayPathOthers.order_items; let r = index")
+                            mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                mat-expansion-panel-header.main
+                                    mat-panel-title
+                                        custom-icon.mixer([icono]="orderItems.order_items_img")
+                                        .header-product {{ orderItems.order_items_type }}
+                                .container-order(*ngFor="let itemId of orderItems.order_items_id; let k = index")
+                                    .container-product(*ngFor="let dataId of itemId.id_data; let q = index")
+                                        mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                            mat-expansion-panel-header.second(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                mat-panel-title
+                                                    .container-superior(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                        .design([ngClass]="{'design-border' : dataId.material.length > 0}") {{ dataId.material }}
+                                                        //- .divider(*ngIf="dataId.material.length > 0") |
+                                                        .volume(*ngIf="dataId.quantity.length > 0") {{ dataId.quantity }}
+                                                        .volume_unit(*ngIf="dataId.unit.length > 0") {{ dataId.unit }}
+                                            .container-inferior.path
+                                                .container-info-inferior
+                                                    .container-left.path
+                                                        .container-drops(*ngFor="let tracking of dataId.tracking; let j = index", (click)="onPath(k, j, 'new', 'others', tracking.checked)")
+                                                            custom-icon.drop([icono]="tracking.img")
+                                                            .drop-number([ngClass]="{'short' : tracking.order < 10, 'large' : tracking.order >= 10 }") {{ tracking.order }}
+                                                            .drop-divider.path(*ngIf="(j + 1 < dataId.tracking.length) && (orderItems.order_items_type !== 'RAPIMIX' && orderItems.order_items_type !== 'Rapimix' && orderItems.order_items_type !== 'rapimix')")
+                                                    .container-right
+                                                        .container-progress.path(*ngFor="let tracking of dataId.tracking; let j = index", [ngClass]="{'border-auxiliar' : k + 1 < dataId.tracking.length }")
+                                                            .progress-left.path((click)="onPath(k, j, 'new', 'others', tracking.checked)")
+                                                                .left-info.path(*ngIf="itemId.order_items_type === 'CONCRETO' || itemId.order_items_type === 'Concreto' || itemId.order_items_type === 'concreto'") {{ tracking.quantity_dispatch }} {{ tracking.route }} | Despacho {{ tracking.order }} de {{ dataId.tracking.length }}
+                                                                .left-info.path(*ngIf="itemId.order_items_type !== 'CONCRETO' && itemId.order_items_type !== 'Concreto' && itemId.order_items_type !== 'concreto'") {{ tracking.quantity }} {{ tracking.route }} | {{ dataId.material }}
+                                                                .left-slider
+                                                                    .slider-back
+                                                                        .slider-front.black-front([ngStyle]="{'width' : tracking.progress, 'height' : '2px' }")
+                                                                        custom-icon.small-slider-circle(icono="small_slider_circle")
+                                                                        .circle.black-circle([ngStyle]="{'top' : '-10px', 'left' : tracking.progress }")
+                                                            .progress-right((click)="onCheck(k, q, j, false)")
+                                                                custom-icon.checkbox(*ngIf="tracking.checked", icono="check_checked")
+                                                                custom-icon.checkbox(*ngIf="!tracking.checked", icono="check_unchecked")
+        mat-tab(label="En obra")
+            mat-accordion
+                div(*ngIf="showErrorOrders", style="width=100%")
+                    .text-error {{ errorMessageOrders }}
+                div(*ngIf="!showErrorOrders", style="width=100%")
+                    div(*ngIf="showErrorOrdersSelected", style="width=100%")
+                        .text-error {{ errorMessageOrdersSelected }}
+                    div(*ngIf="!showErrorOrdersSelected", style="width=100%")
+                        .container-order(*ngFor="let orderItems of arrayOrdersSelected.order_items; let r = index")
+                            mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                mat-expansion-panel-header.main
+                                    mat-panel-title
+                                        custom-icon.mixer([icono]="orderItems.order_items_img")
+                                        .header-product {{ orderItems.order_items_type }}
+                                .container-order(*ngFor="let itemId of orderItems.order_items_id; let k = index")
+                                    .container-product(*ngFor="let dataId of itemId.id_data; let q = index")
+                                        mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                            mat-expansion-panel-header.second(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                mat-panel-title
+                                                    .container-superior
+                                                        .design([ngClass]="{'design-border' : dataId.material.length > 0}") {{ dataId.material }}
+                                                        //- .divider(*ngIf="dataId.material.length > 0") |
+                                                        .volume(*ngIf="dataId.quantity.length > 0") {{ dataId.quantity }}
+                                                        .volume_unit(*ngIf="dataId.unit.length > 0") {{ dataId.unit }}
+                                            .container-inferior.order([ngClass]="{'order-regular' : orderItems.order_items_type !== 'Rapimix', 'order-rapimix' : orderItems.order_items_type === 'Rapimix'}")
+                                                .container-info-inferior
+                                                    .container-left.order([ngClass]="{'order-left-regular' : orderItems.order_items_type !== 'Rapimix'}")
+                                                        .container-drops(*ngFor="let tracking of dataId.tracking; let j = index", [ngClass]="{'border-auxiliar-drop' : (j + 1 < tracking.dispatch_length) && (orderItems.order_items_type === 'Rapimix') }", (click)="onTracking(k, j, 'new', 'selected')")
+                                                            custom-icon.drop(*ngIf="dataId.material.length <= 0", [icono]="tracking.img")
+                                                            custom-icon.drop.big.drop-order(*ngIf="dataId.material.length > 0", [icono]="tracking.img", [ngClass]="{'drop-ceiling' : j !== 0}")
+                                                            .drop-number([ngClass]="{'short' : tracking.order < 10, 'large' : tracking.order >= 10, 'number-rapimix' : orderItems.order_items_type === 'Rapimix', 'drop-number-ceiling' : (j !== 0) && (orderItems.order_items_type === 'Rapimix') }") {{ tracking.order }}
+                                                            .drop-divider.order(*ngIf="(j + 1 < dataId.tracking.length) && (orderItems.order_items_type !== 'Rapimix')", [ngClass]="{'on-time-divider' : !tracking.kidnapping, 'divider-kidnapping' : tracking.kidnapping}")
+                                                    .container-right
+                                                        .container-progress.order(*ngFor="let tracking of dataId.tracking; let j = index", [ngClass]="{'border-auxiliar' : j + 1 < dataId.tracking.length, 'on-time' : !tracking.kidnapping, 'kidnapping' : tracking.kidnapping }", (click)="onTracking(k, j, 'new', 'selected')")
+                                                            .progress-left.order
+                                                                .left-info.order(*ngIf="orderItems.order_items_type !== 'Rapimix'") {{ tracking.quantity_dispatch }} {{ tracking.route }} | Despacho {{ tracking.order }} de {{ tracking.dispatch_length }}
+                                                                .left-info.order(*ngIf="orderItems.order_items_type === 'Rapimix'", [ngClass]="{'order-right-rapimix' : true}") {{ tracking.quantity_dispatch }} {{ tracking.route }} | {{ dataId.material }}
+                                                            //- .container-kidnapping(*ngIf="orderItems.order_items_type === 'Rapimix' && tracking.kidnapping")
+                                                            //-     custom-icon.exclamation(icono="exclamation_down")
+                                                            //-     .kidnapping-info.normal Esperando
+                                                            //-     .kidnapping-info.time 24:31
+                                                            //-     .kidnapping-info.normal minutos para poder despachar.
+                    .container-intermediate(*ngIf="showOrdersIntermediate", (click)="changeOrdersInfo()")
+                        .text-intermediate {{ intermediateOrdersText }}
+                        custom-icon.arrow(*ngIf="!showMoreOrdersInfo", icono="arrow_down_redesign2")
+                        custom-icon.arrow(*ngIf="showMoreOrdersInfo", icono="arrow_top_redesign")
+                    div(*ngIf="showMoreOrdersInfo", style="width=100%")
+                        .container-order(*ngFor="let orderItems of arrayOrdersOthers.order_items; let r = index")
+                            mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                mat-expansion-panel-header.main
+                                    mat-panel-title
+                                        custom-icon.mixer([icono]="orderItems.order_items_img")
+                                        .header-product {{ orderItems.order_items_type }}
+                                .container-order(*ngFor="let itemId of orderItems.order_items_id; let k = index")
+                                    .container-product(*ngFor="let dataId of itemId.id_data; let q = index")
+                                        mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                            mat-expansion-panel-header.second(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                mat-panel-title
+                                                    .container-superior
+                                                        .design([ngClass]="{'design-border' : dataId.material.length > 0}") {{ dataId.material }}
+                                                        //- .divider(*ngIf="dataId.material.length > 0") |
+                                                        .volume(*ngIf="dataId.quantity.length > 0") {{ dataId.quantity }}
+                                                        .volume_unit(*ngIf="dataId.unit.length > 0") {{ dataId.unit }}
+                                            .container-inferior.order([ngClass]="{'order-regular' : orderItems.order_items_type !== 'Rapimix', 'order-rapimix' : orderItems.order_items_type === 'Rapimix'}")
+                                                .container-info-inferior
+                                                    .container-left.order([ngClass]="{'order-left-regular' : orderItems.order_items_type !== 'Rapimix'}")
+                                                        .container-drops(*ngFor="let tracking of dataId.tracking; let j = index", [ngClass]="{'border-auxiliar-drop' : (j + 1 < tracking.dispatch_length) && (orderItems.order_items_type === 'Rapimix') }", (click)="onTracking(k, j, 'new', 'others')")
+                                                            custom-icon.drop(*ngIf="dataId.material.length <= 0", [icono]="tracking.img")
+                                                            custom-icon.drop.big.drop-order(*ngIf="dataId.material.length > 0", [icono]="tracking.img", [ngClass]="{'drop-ceiling' : j !== 0}")
+                                                            .drop-number([ngClass]="{'short' : tracking.order < 10, 'large' : tracking.order >= 10, 'number-rapimix' : orderItems.order_items_type === 'Rapimix', 'drop-number-ceiling' : (j !== 0) && (orderItems.order_items_type === 'Rapimix') }") {{ tracking.order }}
+                                                            .drop-divider.order(*ngIf="(j + 1 < dataId.tracking.length) && (orderItems.order_items_type !== 'Rapimix')", [ngClass]="{'on-time-divider' : !tracking.kidnapping, 'divider-kidnapping' : tracking.kidnapping}")
+                                                    .container-right
+                                                        .container-progress.order(*ngFor="let tracking of dataId.tracking; let j = index", [ngClass]="{'border-auxiliar' : j + 1 < dataId.tracking.length, 'on-time' : !tracking.kidnapping, 'kidnapping' : tracking.kidnapping }", (click)="onTracking(k, j, 'new', 'others')")
+                                                            .progress-left.order
+                                                                .left-info.order(*ngIf="orderItems.order_items_type !== 'Rapimix'") {{ tracking.quantity_dispatch }} {{ tracking.route }} | Despacho {{ tracking.order }} de {{ tracking.dispatch_length }}
+                                                                .left-info.order(*ngIf="orderItems.order_items_type === 'Rapimix'", [ngClass]="{'order-right-rapimix' : true}") {{ tracking.quantity_dispatch }} {{ tracking.route }} | {{ dataId.material }}
+                                                            //- .container-kidnapping(*ngIf="orderItems.order_items_type === 'Rapimix' && tracking.kidnapping")
+                                                            //-     custom-icon.exclamation(icono="exclamation_down")
+                                                            //-     .kidnapping-info.normal Esperando
+                                                            //-     .kidnapping-info.time 24:31
+                                                            //-     .kidnapping-info.normal minutos para poder despachar.
+        mat-tab(label="Finalizado")
+            mat-accordion
+                div(*ngIf="showErrorFinalized", style="width=100%")
+                    .text-error {{ errorMessageFinalized }}
+                div(*ngIf="!showErrorFinalized", style="width=100%")
+                    div(*ngIf="showErrorFinalizedSelected", style="width=100%")
+                        .text-error {{ errorMessageFinalizedSelected }}
+                    div(*ngIf="!showErrorFinalizedSelected", style="width=100%")
+                        .container-order(*ngFor="let orderItems of arrayFinalizedSelected.order_items; let r = index")
+                            mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                mat-expansion-panel-header.main
+                                    mat-panel-title
+                                        custom-icon.mixer([icono]="orderItems.order_items_img")
+                                        .header-product {{ orderItems.order_items_type }}
+                                .container-order(*ngFor="let itemId of orderItems.order_items_id; let k = index")
+                                    .container-product(*ngFor="let dataId of itemId.id_data; let q = index")
+                                        mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                            mat-expansion-panel-header.second(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                mat-panel-title
+                                                    .container-superior
+                                                        .design([ngClass]="{'design-border' : dataId.material.length > 0}") {{ dataId.material }}
+                                                        //- .divider(*ngIf="dataId.material.length > 0") |
+                                                        .volume(*ngIf="dataId.quantity.length > 0") {{ dataId.quantity }}
+                                                        .volume_unit(*ngIf="dataId.unit.length > 0") {{ dataId.unit }}
+                                            .container-inferior.finalized
+                                                .tracking-header
+                                                    .header-section
+                                                        custom-icon.trail(icono="trail")
+                                                        .text-title Origen
+                                                        .header-info {{ dataId.origin }}
+                                                    .header-section
+                                                        custom-icon.pin2(icono="pin2")
+                                                        .text-title Destino
+                                                        .header-info Obra
+                                                    .header-section
+                                                        custom-icon.trail(icono="trail")
+                                                        .text-title Retiro
+                                                        .header-info De obra
+                                                .tracking-sub-header
+                                                    .sub-header-text Volumen | Nº de Despacho
+                                                    .sub-header-text Hora de salida
+                                                    .sub-header-text Hora de llegada
+                                                    .sub-header-text Hora de retiro
+                                                .tracking-info.finalized(*ngFor="let tracking of dataId.tracking.slice().reverse(); let k = index", [ngClass]="{'border-finalized' : k + 1 < dataId.tracking.length }")
+                                                    .info-container
+                                                        .info-detail {{ tracking.dispatch_volume }} {{ tracking.dispatch_volume_unit }} | {{ tracking.dispatch_number }} de {{ tracking.events_length }}
+                                                        .info-detail {{ tracking.origin_time }}
+                                                        .info-detail {{ tracking.arrival_time }}
+                                                        .info-detail {{ tracking.retirement_time }}
+                    .container-intermediate(*ngIf="showFinalizedIntermediate", (click)="changeFinalizedInfo()")
+                        .text-intermediate {{ intermediateFinalizedText }}
+                        custom-icon.arrow(*ngIf="!showMoreFinalizedInfo", icono="arrow_down_redesign2")
+                        custom-icon.arrow(*ngIf="showMoreFinalizedInfo", icono="arrow_top_redesign")
+                    div(*ngIf="showMoreFinalizedInfo", style="width=100%")
+                        .container-order(*ngFor="let orderItems of arrayFinalizedOthers.order_items; let r = index")
+                            mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                mat-expansion-panel-header.main
+                                    mat-panel-title
+                                        custom-icon.mixer([icono]="orderItems.order_items_img")
+                                        .header-product {{ orderItems.order_items_type }}
+                                .container-order(*ngFor="let itemId of orderItems.order_items_id; let k = index")
+                                    .container-product(*ngFor="let dataId of itemId.id_data; let q = index")
+                                        mat-expansion-panel((opened)="panelOpenState = false", (closed)="panelOpenState = true", [expanded]="r == 0")
+                                            mat-expansion-panel-header.second(*ngIf="orderItems.order_items_type !== 'Cemento' && orderItems.order_items_type !== 'Rapimix'")
+                                                mat-panel-title
+                                                    .container-superior
+                                                        .design([ngClass]="{'design-border' : dataId.material.length > 0}") {{ dataId.material }}
+                                                        //- .divider(*ngIf="dataId.material.length > 0") |
+                                                        .volume(*ngIf="dataId.quantity.length > 0") {{ dataId.quantity }}
+                                                        .volume_unit(*ngIf="dataId.unit.length > 0") {{ dataId.unit }}
+                                            .container-inferior.finalized
+                                                .tracking-header
+                                                    .header-section
+                                                        custom-icon.trail(icono="trail")
+                                                        .text-title Origen
+                                                        .header-info {{ dataId.origin }}
+                                                    .header-section
+                                                        custom-icon.pin2(icono="pin2")
+                                                        .text-title Destino
+                                                        .header-info Obra
+                                                    .header-section
+                                                        custom-icon.trail(icono="trail")
+                                                        .text-title Retiro
+                                                        .header-info De obra
+                                                .tracking-sub-header
+                                                    .sub-header-text Volumen | Nº de Despacho
+                                                    .sub-header-text Hora de salida
+                                                    .sub-header-text Hora de llegada
+                                                    .sub-header-text Hora de retiro
+                                                .tracking-info.finalized(*ngFor="let tracking of dataId.tracking.slice().reverse(); let k = index", [ngClass]="{'border-finalized' : k + 1 < dataId.tracking.length }")
+                                                    .info-container
+                                                        .info-detail {{ tracking.dispatch_volume }} {{ tracking.dispatch_volume_unit }} | {{ tracking.dispatch_number }} de {{ tracking.events_length }}
+                                                        .info-detail {{ tracking.origin_time }}
+                                                        .info-detail {{ tracking.arrival_time }}
+                                                        .info-detail {{ tracking.retirement_time }}

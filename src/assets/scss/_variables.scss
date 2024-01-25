@@ -1,0 +1,84 @@
+/*** New Egipto ***/
+
+/*** Colors ***/
+// Main Theme
+
+$black: #333333;
+$light_red: #5585c1;
+$light_red_opacity_80: rgba(204, 33, 40, 0.8);
+$light_red_opacity_30: rgba(204, 33, 40, 0.3);
+$steel_gray: #3d4550;
+
+// Black to white
+$all_black: #000000;
+$gray_5: #a6a6a6;
+$gray_4: #424242;
+$gray_3: #9b9b9b;
+$gray_2: #d2d2d2;
+$gray_2_opacity_25: rgba(191, 191, 191, 0.25);
+$gray_2_opacity_40: rgba(191, 191, 191, 0.4);
+$gray_2_opacity_80: rgba(191, 191, 191, 0.8);
+$gray_calendar_1: #ecf5ff;
+$gray_calendar_2: #d9dbdf;
+$gray_calendar_3: #f2f3f7;
+$gray_calendar_4: #9fa6b0;
+$gray_programming_1: #e1e4e9;
+$gray_programming_2: #9fa6b0;
+$gray_programming_3: #2a2e35;
+$gray_1: #efefef;
+$gray_1_opacity_20: rgba(239, 239, 239, 0.2); // Usar cuando pidan #FBFBFB;
+$white: #ffffff;
+
+// Backgrounds
+$background: #f4f5f7;
+$baby_red: #fbe4e5;
+$baby_steel_gray: #e1e9f4;
+
+//Others
+$blue: #3d96ff;
+$blue_opacity_80: rgba(61, 150, 255, 0.8);
+$blue_opacity_30: rgba(61, 150, 255, 0.3);
+$blue_calendar_1: #eaf4ff;
+$blue_calendar_2: #2d8dff;
+$blue_calendar_3: #96c6ff;
+$blue_calendar_4: #7494b9;
+$blue_calendar_5: rgba(214, 233, 255, 1);
+$mustard: #ffc041;
+$mustard_opacity_80: rgba(255, 192, 65, 0.8);
+$mustard_opacity_30: rgba(255, 192, 65, 0.3);
+$green: #05c65d;
+$green_opacity_80: rgba(5, 198, 93, 0.8);
+$green_opacity_30: rgba(5, 198, 93, 0.3);
+$purple: purple;
+$purple_opacity_80: rgba(128, 0, 128, 0.8);
+$purple_opacity_30: rgba(128, 0, 128, 0.3);
+$orange: orange;
+$orange_opacity_80: rgba(255, 165, 0, 0.8);
+$orange_opacity_30: rgba(255, 165, 0, 0.3);
+/*** End Colors ***/
+
+/*** End New Egipto ***/
+
+/*** Old Egipto ***/
+$red: #5585c1;
+$gris: #3d4550;
+$gris_opacity: rgba(61, 69, 80, 0.5);
+$gris2: #f5f5f5;
+$gris_claro: #efefef;
+$gris_claro2: rgba(239, 239, 239, 0.5);
+$botones: #5585c1;
+
+$client: #5585c1;
+$seller: #3d4550;
+
+$original: #5585c1;
+$modify: #3d4550;
+$reject: #7b8188;
+/*** End Old Egipto ***/
+
+:root {
+    --botones: #5585c1;
+    --princpal: #5585c1;
+    --gris-oscuro: #3d4550;
+    --gris-claro: #efefef;
+}

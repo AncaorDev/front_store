@@ -1,0 +1,73 @@
+.market-info
+    .info-window-top
+        custom-icon.top-separator(icono="separator")
+        .top-title
+            .title-left
+                .item-product {{ data.type }}
+                .item-design {{ data.material }}
+            .title-right
+                .item-volume(*ngIf="data.material === 'CONCRETO' || data.material === 'Concreto' ||  data.material === 'concreto'") {{ data.quantity_dispatch }} / {{ data.quantity }} {{ data.route }}
+                .item-volume(*ngIf="data.material !== 'CONCRETO' && data.material !== 'Concreto' &&  data.material !== 'concreto'") {{ data.quantity }} {{ data.route }}
+        .top-body
+            .body-left
+                custom-icon.window-drop(icono="reverse_drop_green")
+                .window-drop-number([ngClass]="{'short' : data.order < 10, 'large' : data.order >= 10 }") {{ data.order }}
+                custom-icon.window-drop(icono="green_concrete_mixer")
+                .order-message {{ data.order_message }}
+            .body-right
+                //- .body-top Llegada estimada
+                //- .body-bottom {{ data.origin_time }} - {{ data.destiny_time }}
+        //- .container-kidnapping
+        //-     custom-icon.exclamation(icono="exclamation_down")
+        //-     .kidnapping-info.normal El despacho se ha retrasado
+        //-     .kidnapping-info.time 40
+        //-     .kidnapping-info.normal minutos estimadamente.
+    //- .info-window-mid
+    //-     .container-start
+    //-         custom-icon.window-picture(icono="window_profile")
+    //-         .container-mid
+    //-             .mid-top Daniel Roberto Perez (T7X903)
+    //-             .mid-bottom Transportista
+    //-     custom-icon.whassap(icono="whassap")
+    .info-window-bottom
+        .bottom-top
+            .strong-text Detalles del despacho
+            .small-text Placa del vehiculo: {{ data.nro_material }}
+            .small-text(*ngIf="data.material === 'CONCRETO' || data.material === 'Concreto' ||  data.material === 'concreto'") Volumen en camino: {{ data.quantity_dispatch }}{{ data.route }} | Despacho {{ data.dispatch_order_length }} de {{ data.dispatch_length }}
+            .small-text(*ngIf="data.material !== 'CONCRETO' && data.material !== 'Concreto' &&  data.material !== 'concreto'") Volumen en camino: {{ data.quantity }}{{ data.route }}
+            .small-text Volumen total del pedido: {{ data.quantity }}{{ data.route }}
+        //- .bottom-mid
+        //-     .slider-back
+        //-         .slider-front.green-front([ngStyle]="{'width' : '60%', 'height' : '2px' }")
+        //-         custom-icon.small-slider-circle(icono="small_slider_circle")
+        //-         .circle.green-circle([ngStyle]="{'top' : '-10px', 'left' : '60%' }")
+        //-         custom-icon.ping(icono="pin")
+        //-     .slider-text
+        //-         .info-slider Dino Chiclayo
+        //-         .info-slider Obra
+        .bottom-bottom
+            .container-left.finalized
+                .container-trails
+                    custom-icon.trail(icono="trail")
+                    custom-icon.trail-suspension(icono="trail_suspension")
+                    custom-icon.trail-suspension(icono="trail_suspension")
+                    custom-icon.trail-suspension(icono="trail_suspension")
+                .container-trails
+                    custom-icon.ping(icono="pin")
+            .container-right
+                .container-progress
+                    .progress-left
+                        .progress-info.progress-space
+                            .top-info
+                                .ubication
+                                    .ubication-first ORIGEN:
+                                    .ubication-second {{ data.origin }}
+                                .time {{ data.origin_time }}
+                            //- .bottom-info Av. Lomas de Santiago 230 Urb. 45, Piura, Piura.
+                        .progress-info
+                            .top-info
+                                .ubication
+                                    .ubication-first DESTINO:
+                                    .ubication-second {{ data.destiny }}
+                                .time {{ data.destiny_time }}
+                            .bottom-info {{ data.work_address }}

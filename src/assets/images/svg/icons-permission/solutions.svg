@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+    <defs>
+        <style>
+            .class-icon{fill:#5585c1}
+        </style>
+    </defs>
+	<g id="soluciones" transform="translate(-24.277 -339)">
+		<!-- <rect class="class-icon" id="Rectángulo_749" data-name="Rectángulo 749" width="60" height="60" transform="translate(24.277 339)" fill="#fff"/> -->
+		<path class="class-icon" id="Trazado_3048" data-name="Trazado 3048" d="M51.844,3.951v-50h50l-.027,32.658H84.5V3.951ZM80.718.108V-17.206H98v-25l-42.28-.007V.108Z" transform="translate(-22.566 390.05)" fill="#5585c1"/>
+	</g>
+</svg>

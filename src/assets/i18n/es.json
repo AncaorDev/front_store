@@ -1,0 +1,111 @@
+{
+    "APP" : {
+        "close"         : "Cerrar",
+        "close_session" : "Cerrar sesión",
+        "notif_pending" : "Tienes notificaciones pendientes."
+    },
+
+    "NOTIFICATION" : {
+        "title" : "CONFIGURACIÓN",
+        "sub_title" : "Ajustes y configuraciones"
+    },
+
+    "SCHEDULE" : {
+        "title"             : "Programación",
+        "schedule_request"  : "PROGRAMACIONES SOLICITADAS",
+        "view"              :   {
+                                    "list"      : "Lista",
+                                    "calendar"  : "Calendario",
+                                    "tutorial"  : "Tutorial"
+                                },
+        "new_schedule"      : "CREAR NUEVA PROGRAMACIÓN",
+        "new"               : "NUEVA",
+        "not_found"         : "No hay programaciones.",
+        "msj_new_schedule"  : "Haz clic en \"Crear Nueva Programación\" para comenzar.",
+
+        "msj_not_confirm"   : "Tienes programaciones sin confirmar",
+        "submsj_not_confirm": "¿Qué deseas hacer?",
+
+        "concrete"          : "Concreto",
+        "time"              : "Hora",
+        "frequency"         : "Frecuencia",
+        "volume"            : "Volumen",
+        "supply"            : "Suministro",
+        "structure"         : "Estructura",
+        "observation"       : "Observaciones",
+        "time_remaining_edt": "Tiempo restante para editar",
+        "time_remaining"    : "Tiempo restante",
+        "more"              : "más...",
+
+        "discard_save"      : "DESCARTAR GUARDADO",
+        "resume_save"       : "RETOMAR GUARDADO",
+        "msj_delete"        : "¿Estás seguro que deseas eliminar esta programación?"
+    },
+
+    "SCHEDULE_WORK" : {
+        "title"             : "Obra",
+        "msj_select_work"   : "Selecciona la obra para la que que deseas programar el despacho:"
+    },
+
+    "SCHEDULE_ADD" : {
+        "title"             : "Datos",
+        "work"              : "OBRA:",
+
+        "date_supply"       : "Fecha suministro",
+        "concrete"          : "Concreto",
+        "time"              : "Hora tentativa de despacho (24h)",
+        "frequency"         : "Frecuencia deseada",
+        "volume"            : "Volumen requerido (m3)",
+        "supply"            : "Tipo de suministro",
+        "structure"         : "Tipo de estructura",
+        "reply"             : "¿Repetir programación?",
+        "observation"       : "Observaciones",
+        "person_contact"    : "Persona contacto",
+        "phone"             : "Teléfono",
+        "select_date"       : "Selecciona una fecha",
+        "select_dates"      : "Seleccionar fechas",
+
+        "enter_date"        : "Ingrese una fecha",
+        "select_option"     : "Selecione una opción",
+        "enter_time"        : "Escriba una hora",
+        "select_frequency"  : "Selecciona la frecuencia",
+        "select_concrete"   : "Selecciona el concreto",
+        "time_valid"        : "Escriba una hora válida",
+
+        "ph_hour"           : "Hora",
+        "ph_min"            : "Min",
+
+        "msj_repeat"        : "Repetir programación te permite clonar todos los datos de la programación actual en cualquier fecha que desees, con la posibilidad a su vez de editar cada dato por separado."
+    },
+
+    "DOCUMENTS" : {
+        "title" : "Documentos",
+        "subtitle" : "LISTADO DE DOCUMENTOS",
+        "msj_select_work" : "Selecciona la obra para ver los documentos disponibles",
+        "download" : "Descargar",
+        "download_all" : "Descargar todo",
+        "all" : "Todo",
+        "no_documents" : "No hemos encontrado documentos disponibles para esta obra, por favor vuelve a intentarlo",
+        "no_select" : "Por favor seleccione una obra",
+        "msj_modal" : "El certificado se emite 28 días después del despacho",
+        "certificate" : "Certificado",
+        "certificate_inavailable" : "Certificado no disponible",
+        "travel" : "Viaje",
+        "guide" : "Guía",
+        "dispatch" : "Despacho",
+        "filter" : "Filtrar",
+        "clean" : "Limpiar",
+        "plaque" : "Placa",
+        "volume" : "Volumen"
+    },
+
+    "GENERIC" : {
+        "select"        : "Seleccionar",
+        "cancel"        : "Cancelar",
+        "save"          : "Guardar",
+        "new_schedule"  : "NUEVA PROGRAMACIÓN",
+        "edit_schedule" : "EDITAR PROGRAMACIÓN",
+        "calendar"      : "Calendario",
+        "tutorial"      : "Tutorial"
+    }
+}

@@ -1,0 +1,22 @@
+
+<div class="filter">
+  <div class="tab all" [ngClass]="{ 'active' : activeAll }"><a (click)="allActiveF()" [routerLink]="soluciones_link">Todo</a></div>
+  <div class="tab" (click)="activeCate = !activeCate; activeType = false" [ngClass]="{ 'active' : activeCate }">Por categoría<img class="icon" [ngClass]="{'rotate' : activeCate}" src="./assets/images/svg/arrow-down.svg"></div>
+  <ul class="accordion" [ngClass]="{'open'   : activeCate }">
+    <div class="div">
+      <li *ngFor="let cate of categorys;let i = index;"><a class="toggle" [routerLink]="soluciones_link" [queryParams]="{ category : cate.id }" routerLinkActive="active" (click)="showData()"><img [src]="cate.logo"><span>{{ cate.nombre }}</span></a></li>
+    </div>
+  </ul>
+  <div class="tab" (click)="activeType = !activeType;activeCate = false" [ngClass]="{ 'active' : activeType }">Por tipo de obra<img class="icon" [ngClass]="{'rotate' : activeType}" src="./assets/images/svg/arrow-down.svg"></div>
+  <ul class="accordion" [ngClass]="{'open'   : activeType }">
+    <div class="div">
+      <li *ngFor="let segment of segments;let i = index;"><a class="toggle plus" [routerLink]="soluciones_link" [queryParams]="{ type : segment.id }" routerLinkActive="active" (click)="showData()"><img [src]="segment.logo"><span>{{ segment.nombre }}</span></a>
+        <ul class="inner" [ngClass]="{ 'show' : segment.show }">
+          <div class="div">
+            <li *ngFor="let cate of segments[i]?.categorys;let a = index;"><a [routerLink]="soluciones_link" [queryParams]="{ type : segment.id , category : cate.id}" routerLinkActive="active" (click)="showData()">{{ cate.nombre }}</a></li>
+          </div>
+        </ul>
+      </li>
+    </div>
+  </ul>
+</div>

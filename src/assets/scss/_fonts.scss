@@ -1,0 +1,129 @@
+// FONTS
+
+/*** New Egipto ***/
+@font-face {
+    font-family: 'AvenirBlack';
+    src: url('/assets/fonts/Avenir-Black.eot');
+    src: url('/assets/fonts/Avenir-Black.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Avenir-Black.woff2') format('woff2'),
+        url('/assets/fonts/Avenir-Black.woff') format('woff'),
+        url('/assets/fonts/Avenir-Black.ttf') format('truetype'),
+        url('/assets/fonts/Avenir-Black.svg#Avenir-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirHeavy';
+    // src: url('/assets/fonts/Avenir-Heavy.eot');
+    src:
+        // url('/assets/fonts/Avenir-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Avenir-Heavy.woff2') format('woff2'),
+        url('/assets/fonts/Avenir-Heavy.woff') format('woff'),
+        url('/assets/fonts/Avenir-Heavy.ttf') format('truetype');
+        // url('/assets/fonts/Avenir-Heavy.svg#Avenir-Heavy') format('svg');
+    font-weight: 850;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirMedium';
+    src: url('/assets/fonts/Avenir-Medium.eot');
+    src: url('/assets/fonts/Avenir-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Avenir-Medium.woff2') format('woff2'),
+        url('/assets/fonts/Avenir-Medium.woff') format('woff'),
+        url('/assets/fonts/Avenir-Medium.ttf') format('truetype'),
+        url('/assets/fonts/Avenir-Medium.svg#Avenir-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirRoman';
+    // src: url('/assets/fonts/Avenir-Roman.eot');
+    src:
+        // url('/assets/fonts/Avenir-Roman.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Avenir-Roman.woff2') format('woff2'),
+        url('/assets/fonts/Avenir-Roman.woff') format('woff'),
+        url('/assets/fonts/Avenir-Roman.ttf') format('truetype');
+        // url('/assets/fonts/Avenir-Roman.svg#Avenir-Roman') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirLight';
+    src: url('/assets/fonts/Avenir-Light.eot');
+    src: url('/assets/fonts/Avenir-Light.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Avenir-Light.woff2') format('woff2'),
+        url('/assets/fonts/Avenir-Light.woff') format('woff'),
+        url('/assets/fonts/Avenir-Light.ttf') format('truetype'),
+        url('/assets/fonts/Avenir-Light.svg#Avenir-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+/*** End New Egipto ***/
+
+/*** Old Egipto ***/
+@font-face {
+    font-family: 'AvenirBook';
+    src: url('/assets/fonts/Avenir-Book.ttf');
+    src: url('/assets/fonts/Avenir-Book.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ForzaBold'; // forzaHeavy
+	src: url('/assets/fonts/forza_bold.eot');
+	src: url('/assets/fonts/forza_bold.eot?#iefix') format('embedded-opentype'),
+		 url('/assets/fonts/forza_bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ForzaBlack';
+	src: url('/assets/fonts/Forza-Black.eot');
+	src: url('/assets/fonts/Forza-Black.eot?#iefix') format('embedded-opentype'),
+		 url('/assets/fonts/Forza-Black.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'ForzaMedium';
+    src: url('/assets/fonts/forza_medium.eot');
+    src: url('/assets/fonts/forza_medium.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/forza_medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'ForzaBook';
+	src: url('/assets/fonts/forza_book.eot');
+	src: url('/assets/fonts/forza_book.eot?#iefix') format('embedded-opentype'),
+		 url('/assets/fonts/forza_book.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ForzaLight';
+	src: url('/assets/fonts/forza_light.eot');
+	src: url('/assets/fonts/forza_light.eot?#iefix') format('embedded-opentype'),
+		 url('/assets/fonts/forza_light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'VitesseBold';
+	src: url('/assets/fonts/vitesse_bold.eot');
+	src: url('/assets/fonts/vitesse_bold.eot?#iefix') format('embedded-opentype'),
+		 url('/assets/fonts/vitesse_bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/*** End Old Egipto ***/

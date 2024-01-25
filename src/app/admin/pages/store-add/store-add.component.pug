@@ -1,0 +1,35 @@
+.container-header-toolbar.theme_default
+	.breadcrumbs
+		a(routerLink="/admin/stores") Almacenes
+		span.arrow &gt;
+		span.current  Registrar o Editar Almacen
+
+	.sub-header
+		h2.title-section Registrar o Editar Almacen
+		.spacer
+
+.body-add
+	.works.container.theme_default
+		form.content_card(*ngIf="formAdd", [formGroup]="formAdd")
+			mat-card
+				.row
+					.col-12.col-sm-6
+						p.text-form([ngClass]="{'status-disabled': disabledCombo}") Nombre
+						.field-control
+							input.form-control(type="text" formControlName="name" placeholder="Escriba el nombre")
+						span.text-invalid(*ngIf="name.errors && name.touched")
+							ng-template(*ngIf="name.errors.required; then errRequired else otherError")
+							ng-template(#errRequired) Ingrese el nombre
+					.col-12.col-sm-6
+						p.text-form([ngClass]="{'status-disabled': disabledCombo}") Descripción
+						.field-control
+							input.form-control(type="text" formControlName="description" placeholder="Escriba la descripción")
+						span.text-invalid(*ngIf="description.errors && description.touched")
+							ng-template(*ngIf="description.errors.required; then errRequired else otherError")
+							ng-template(#errRequired) Ingrese la descripción
+
+
+		.footer_container(*ngIf="formAdd", [class.left_container]="!data_edit")
+			.buttons
+				button.btn.btn-save(type="button", (click)="!load_save && saveData()", [disabled]="formAdd && formAdd.invalid") Guardar
+				button.pointer(mat-button, (click)="cancelForm()") Cancelar

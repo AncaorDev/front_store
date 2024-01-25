@@ -1,0 +1,12 @@
+.menu-wrap([ngClass]="{'show-menu' : show_menu}")
+    .menumov
+        .icon-list
+            a(*ngFor="let route of routes; let i = index",
+                [ngClass]="route.class",
+                [routerLink]="route.link",
+                routerLinkActive="active",
+                (click)="closeMenu()") {{ route.name }}
+.flotante
+    button((click)="closeMenu()")
+        img(src="./assets/images/svg/menu_new.svg", [ngClass]="{'display-none' : show_menu }")
+        img(src="./assets/images/svg/close_new.svg", [ngClass]="{'display-none' : !show_menu }")

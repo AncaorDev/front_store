@@ -1,0 +1,36 @@
+.container
+  .container-equis((click)="closeModal()")
+    img(src="./assets/images/bim/equis.png", alt="", srcset="")
+  .container-header-modal
+    .container-img
+      .item-img(*ngIf="dataProduct?.photos.length>0", )
+        img([src]="dataProduct.photos[0]",  alt="", srcset="")
+    .container-title
+      .container-title-first
+        .title {{dataProduct?.name}}
+        .sub-title {{dataProduct?.description}}
+      .container-title-second(*ngIf="dataUses.length>0")
+          .title {{dataUses[0].title}}
+          .sub-title(*ngFor="let item of dataUses[0].info") {{item.details[0]}}
+
+  .container-progress(*ngIf="!load",style="margin: 0px 0px 20px 0px;")
+    mat-progress-spinner( mode="indeterminate", diameter="50", strokeWidth="5", style="margin:0 auto; margin-top: 40px")
+  
+  .container-table(*ngIf="load")
+    mat-tab-group([(selectedIndex)]="demo1TabIndex", (selectedTabChange)="selectedTabChange($event)")
+      mat-tab([label]="item.model", *ngFor="let item of dataSheet")
+        .container
+          .row(style="margin-right: -20px !important;margin-left: -20px !important;")
+            div.container-setting.col-12.col-sm-6(*ngFor="let itemSetting of item.setting")
+              .setting {{itemSetting.setting}}
+              .field {{itemSetting.field}}
+
+  .container-circles
+    custom-icon.circle(*ngFor="let item of dataSheet; let i = index", icono="{{item.activeCircle}}", (click)="clickCircle(i)")
+  .container-button(*ngIf="showDownloadButton")
+    a.web.btn([href]="dataDownloadAll" target="_blank") Descargar Ficha Técnica
+    a.movil.btn([href]="dataDownloadAll" target="_blank") Descargar
+
+
+
+

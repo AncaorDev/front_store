@@ -1,0 +1,17 @@
+.carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+    .carousel-indicators {
+        li {
+            width: 12px;
+            height: 12px;
+            background-color: #9B9B9B;
+            border-radius: 50%;
+            &.active {
+                background-color: #5585c1;
+            }
+        }
+    }
+}

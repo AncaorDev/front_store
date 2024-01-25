@@ -1,0 +1,19 @@
+.container-header-toolbar.theme_default
+	.breadcrumbs
+		a(routerLink="/admin/movements") Movimientos
+		span.arrow.gris &gt;
+		span.current  Registrar Movimiento
+
+	.sub-header
+		h2.title-section Registrar Movimiento
+		.spacer
+
+.body-add
+	.works.container.theme_default
+		movements-add-form([products]="products", [form_code]="form", (remove)="removeForm($event, form)", *ngFor="let form of formList")
+		button(mat-icon-button aria-label="Editar", (click)="addForm()")
+			mat-icon add
+		.footer_container
+			.buttons
+				button.btn.btn-save(type="button", (click)="!load_save && saveData()", [disabled]="false") Guardar
+				button.pointer(mat-button, (click)="cancelForm()") Cancelar

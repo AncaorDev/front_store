@@ -1,0 +1,12 @@
+.user
+    .paraph
+        .title-container
+            .title_dashboard_new Hola
+            //- .last_title Hola
+        .subtitle_dashboard_new ESTO ES LO QUE SUCEDE EN LOS ALMACENES
+.container-fluid(style="padding: 40px; overflow: 'hidden'")
+    .row
+        .col-12(*ngIf="loadData")
+            google-chart([data]="columnChart")
+        .col-12(*ngIf="loadData")
+            google-chart([data]="columnChart2")

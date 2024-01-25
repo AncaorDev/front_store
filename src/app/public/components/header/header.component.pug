@@ -1,0 +1,12 @@
+.barhead
+    .content
+        .logo([routerLink]="'/'")
+        .spacer
+        ul.menu
+            li(*ngFor="let route of routes; let i = index")
+                //- [routerLinkActiveOptions]="{exact: true}"
+                a([routerLink]="route.link", routerLinkActive="active") {{ route.name }}
+        a.login([routerLink]="'admin'")
+            .icon
+                img(src="./assets/images/svg/user.svg")
+            span.text-session Iniciar Sesión

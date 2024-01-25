@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.609" height="19.609" viewBox="0 0 19.609 19.609">
+    <defs>
+        <style>
+            .cls-6{fill:none;stroke:#5585c1;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="descargar" transform="translate(1 1)">
+        <path id="Trazado_3153" d="M22.109 22.5v3.913a1.957 1.957 0 0 1-1.957 1.957H6.457A1.957 1.957 0 0 1 4.5 26.413V22.5" class="cls-6" transform="translate(-4.5 -10.761)"/>
+        <path id="Trazado_3154" d="M10.5 15l4.891 4.891L20.283 15" class="cls-6" transform="translate(-6.587 -8.152)"/>
+        <path id="Trazado_3155" d="M18 16.239V4.5" class="cls-6" transform="translate(-9.196 -4.5)"/>
+    </g>
+</svg>

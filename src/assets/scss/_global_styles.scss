@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Angular material combo select check box color y check box label color
+::ng-deep .mat-primary {
+  .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $all_black
+  }
+
+  .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+    background-color: $red;
+  }
+}
+
+::ng-deep .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background, ::ng-deep .mat-checkbox-checked.mat-warn .mat-checkbox-background {
+  background-color: $red;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $white;
+}
+
+::ng-deep .mat-option-text {
+  font-family: "AvenirRoman";
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+// Angular material bottom sheet
+::ng-deep .mat-bottom-sheet-container-xlarge, ::ng-deep .mat-bottom-sheet-container-large, ::ng-deep .mat-bottom-sheet-container-medium, ::ng-deep .mat-bottom-sheet-container {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  min-width: calc(100vw);
+  max-width: calc(100vw - 128px);
+}
+
+// Angular material dialog
+::ng-deep .mat-dialog-container {
+  border-radius: 15px;
+}
+
+//Spinner
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $light_red;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}

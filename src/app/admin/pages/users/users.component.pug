@@ -1,0 +1,118 @@
+ng-template(#modalConfirm, let-modal, modal-dialog-centered)
+	.modal-body
+		button.close(type="button", aria-label="Close", (click)="modalService.dismissAll()")
+			span(aria-hidden="true") &times;
+		img.img(*ngIf="imgModalConfirmSuccess", src="/assets/images/ico-modal-success.png")
+		img.img(*ngIf="imgModalConfirmError", src="/assets/images/ico-modal-exclamation.png")
+		.msgConfirm {{msgModalConfirm}}
+
+ng-template(#modalEditUser, let-modal, modal-dialog-centered)
+	.modal-body
+		img.img(width="60", src="/assets/images/ico-modal-exclamation.png")
+		.question ¿Está seguro que desea {{ user_edit.user_status ==  StatusUser.activo ? 'desactivar ' : 'activar' }} el usuario
+		.username {{ user_edit.name + ' ' + user_edit.lastname }}
+		.mail {{ '<' + user_edit.email + '>'  }} ?
+		div
+			button.btn.btn-yes((click)="changeStatusUser()") Sí
+			a.btn-cancel-modal((click)="modalService.dismissAll()") Cancelar
+
+ng-template(#modalDeleteUser, let-modal, modal-dialog-centered)
+	.modal-body
+		img.img(width="60", src="/assets/images/ico-modal-exclamation.png")
+		.question ¿Está seguro que desea eliminar el usuario
+		.username {{ user_delete.name + ' ' + user_delete.lastname }}
+		.mail {{ '<' + user_delete.email + '>'  }} ?
+		div
+			button.btn.btn-yes((click)="deleteUser()") Sí
+			a.btn-cancel-modal((click)="modalService.dismissAll()") Cancelar
+
+ng-template(#modalRejectUser, let-modal, modal-dialog-centered)
+	.modal-body
+		img.img(width="60", src="/assets/images/ico-modal-exclamation.png")
+		.question ¿Está seguro que desea rechazar el usuario
+		.username {{ user_delete.name + ' ' + user_delete.lastname }}
+		.mail {{ '<' + user_delete.email + '>'  }} ?
+		div
+			button.btn.btn-yes((click)="rejectUser()") Sí
+			a.btn-cancel-modal((click)="modalService.dismissAll()") Cancelar
+
+.container-header-toolbar
+	.breadcrumbs
+		a(routerlink="/admin/usuarios") Usuarios
+	h2.title-section {{title}}
+
+.container-users-form
+	form([formGroup]="searchUsersForm")
+		.row.mb-4.justify-content-between
+			.col-lg-5.mt-3.select
+				select2(id="myInput", [data]="selectUsers", formControlName="userId", placeholder="Buscar usuario", customSearchEnabled="true", (open)="loadDataUsers()", (search)="searchUsers($event)", (update)="updateUsers($event)")
+				.icon
+					custom-icon(*ngIf="userId.value", icono="circle_remove", (click)="onResetForm()")
+			.col.mt-3.text-right
+				button.btn.btn-add-user(routerLink="/admin/usuarios/agregar", (click)="onAddUser()") + Agregar usuario
+.container-users-body
+		.row
+			.col.text-left
+				.d-inline-block.content-dropdown-filters(ngbDropdown)
+					button#dropdownFilters.btn-dropdown-filters(type="button", ngbDropdownToggle) {{ filterDesc  }}
+					div(ngbDropdownMenu, aria-labelledby="dropdownFilters")
+						button.dropList(ngbDropdownItem, *ngFor="let a of filter", [ngClass]="{'selected' : a.selected}", (click)="changeFilter(a)") {{ a.desc }}
+		mat-progress-spinner(*ngIf="!load", mode="indeterminate", diameter="50", strokeWidth="5", style="margin:0 auto; margin-top: 40px")
+		.user-list(*ngIf="load")
+			.card.card-company(*ngFor="let item of usuariosPromise | async; index as i")
+				.card-body
+					.row
+						.col
+							.row
+								.col.col-user
+									.row
+										//- .col
+										span.name {{ item.name + ' ' + item.lastname }}
+										//- .col
+										span.email {{ item.email }}
+								.row.d-none.d-xl-flex
+									.col.col-projects
+										a.btn-view-projects(aria-controls="", (click)="item.active = !item.active") Ver obras
+									.col.col-permissions
+										ul.permissions
+											li.text Permisos:
+											li(*ngFor="let permission of permissionList;let i = index")
+												span.ico([ngClass]="['ico-'+permission.id]", [class.active]="permissionActive(permission, item.permissions)")
+								.col.col-datetime
+									span.date(*ngIf="item.register_date_formatted")
+										i.fa.fa-calendar(aria-hidden="true")
+										| {{ item.register_date_formatted }}
+								.w-100.d-sm-none
+								.col.col-status
+									.status([ngClass]="item.user_type == type_user.sub_user ? 'active' : 'inactive'") {{ item.user_type == 4 ? 'ACTIVO' : 'PENDIENTE' }}
+						.col.col-menu
+							.user-menu([matMenuTriggerFor]="menu")
+								i.fa.fa-ellipsis-v(aria-hidden="true")
+						mat-menu(#menu="matMenu", xPosition="before")
+							ul.options(*ngIf="item.user_type == type_user.person")
+								li((click)="editUser(item)")
+									a.opt.edit Aprobar usuario
+								li((click)="openModalDeleteUser(item, type_user.person)")
+									a.opt.del Rechazar Usuario
+							ul.options(*ngIf="item.user_type == type_user.sub_user")
+								li((click)="editUser(item)")
+									a.opt.edit Editar Usuario
+								li((click)="openModalDeleteUser(item, type_user.sub_user)")
+									a.opt.del Eliminar Usuario
+					.row.mt-4.row.d-xl-none
+						.col.col-projects
+							a.btn-view-projects(aria-controls="", (click)="item.active = !item.active") Ver obras
+						.col.col-permissions
+							ul.permissions
+								li.text Permisos:
+								li(*ngFor="let permission of permissionList;let i = index")
+									span.ico([ngClass]="['ico-'+permission.id]", [class.active]="permissionActive(permission, item.permissions)")
+					.row([ngClass]="{'active' : item.active}")
+						.col-12.col-xl-6
+							ul.list-projects([ngClass]="{'active' : item.active}")
+								ng-container(*ngFor="let work of item.works;let i = index")
+									li(*ngIf="i < item.works.length/2") {{ work.work_name }}
+						.col-12.col-xl-6
+							ul.list-projects([ngClass]="{'active' : item.active}")
+								ng-container(*ngFor="let work of item.works;let i = index")
+									li(*ngIf="i >= item.works.length/2") {{ work.work_name }}

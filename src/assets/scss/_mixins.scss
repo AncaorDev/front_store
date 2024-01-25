@@ -1,0 +1,88 @@
+// Max container width	None (auto)		540px		720px		960px		1140px
+// Class prefix			.col-			.col-sm-	.col-md-	.col-lg-	.col-xl-
+$width-xss:320px;
+$width-xs:540px;
+$width-sm:540px;
+$width-md:720px;
+$width-lg:960px;
+$width-xl:1140px;
+
+@mixin breakpoint($min: 0, $max: 0) {
+	$type: type-of($min);
+	@if $type == string {
+		@if $min == xss {
+			@media (max-width: $width-xss) { @content; }
+		}
+		@else if $min == xs {
+			@media (max-width: $width-xs) { @content; }
+		}
+		@else if $min == xxs {
+			@media (min-width: $width-xss) and (max-width: $width-xs) { @content; }
+		}
+		@else if $min == sm {
+			@media (min-width: $width-xs) { @content; }
+		}
+
+		@else if $min == md {
+			@media (min-width: $width-md) { @content; }
+		}
+
+		@else if $min == lg {
+			@media (min-width: $width-lg) { @content; }
+		}
+
+		@else if $min == xl {
+			@media (min-width: $width-xl) { @content; }
+		}
+
+		@else if $min == m_md {
+			@media (max-width: $width-md) { @content; }
+		}
+
+		@else {
+			@warn "Breakpoint mixin supports: xs, sm, md, lg #{$min}";
+		}
+	}
+
+	@else if $type == number {
+		$query: "all" !default;
+		@if $min != 0 and $max != 0 {
+			$query: "(min-width: #{$min}px) and (max-width: #{$max}px)";
+		}
+		@else if $min != 0 and $max == 0 {
+			$query: "(min-width: #{$min}px)";
+		}
+		@else if $min == 0 and $max != 0 {
+			$query: "(max-width: #{$max}px)";
+		}
+		@media #{$query} {
+			@content;
+		}
+	}
+
+}
+
+// Function for converting a px based font-size to rem.
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+  	//Default font size on html element is 100%, equivalent to 16px;
+	@return #{$remSize}rem;
+}
+
+// Mixin that will include the fall back px declaration as well as the calculated rem value.
+@mixin fontSize($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+
+// SASS FUNCTION TO CONVERT PX INTO REM
+
+// Defining base font size
+// The default font size for html is 16px
+$base-size: 16;
+//Function to convert px value into rem
+//You can replace rem with any other value you want (rem is most preferred value for web)
+@function size($target, $context: $base-size) {
+  @return ($target / $context) * 1em;
+}

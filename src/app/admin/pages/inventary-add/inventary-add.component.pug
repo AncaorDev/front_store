@@ -1,0 +1,112 @@
+.container-header-toolbar.theme_default
+	.breadcrumbs
+		a(routerLink="/admin/inventary") Inventario
+		span.arrow &gt;
+		span.current  Registrar Producto
+
+	.sub-header
+		h2.title-section Registrar Producto
+		.spacer
+
+.body-add
+	.works.container.theme_default
+		form.content_card(*ngIf="formAdd", [formGroup]="formAdd")
+			mat-card
+				.row
+					.col-12.col-sm-6
+						p.text-form Tipo de Producto
+						.field-control.select-control
+							select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="id_type_product" placeholder="Seleccione el producto")
+								option(value="null") Selecciona el tipo de producto
+								option(*ngFor="let type of typeProductList;", [value]="type.id_type_product") {{ type.description }}
+						span.text-invalid(*ngIf="id_type_product.errors && id_type_product.touched")
+							ng-template(*ngIf="id_type_product.errors.required; then errRequired")
+							ng-template(#errRequired) Selecione una opción
+
+					.col-12.col-sm-6
+						p.text-form Clasificación Producto
+						.field-control.select-control
+							select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="id_clasification_product" placeholder="Seleccione la clasificación del producto")
+								option(value="null") Seleccione la clasificación del producto
+								option(*ngFor="let clasification of clasificationProductList;", [value]="clasification.id_clasification_product") {{ clasification.description }}
+						span.text-invalid(*ngIf="id_clasification_product.errors && id_clasification_product.touched")
+							ng-template(*ngIf="id_clasification_product.errors.required; then errRequired")
+							ng-template(#errRequired) Selecione una opción
+
+					.col-12.col-sm-6
+						p.text-form Marca de Producto
+						.field-control.select-control
+							select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="id_mark_product" placeholder="Seleccione la marca del producto")
+								option(value="null") Seleccione la marca del producto
+								option(*ngFor="let mark of markProductList;", [value]="mark.id_mark_product") {{ mark.name }}
+						span.text-invalid(*ngIf="id_mark_product.errors && id_mark_product.touched")
+							ng-template(*ngIf="id_mark_product.errors.required; then errRequired")
+							ng-template(#errRequired) Selecione una opción
+
+					.col-12.col-sm-6
+						p.text-form Almacen
+						.field-control.select-control
+							select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="id_store" placeholder="Seleccione el almacén")
+								option(value="null") Seleccione el almacén
+								option(*ngFor="let store of storeList;", [value]="store.id_store") {{ store.name }}
+						span.text-invalid(*ngIf="id_store.errors && id_store.touched")
+							ng-template(*ngIf="id_store.errors.required; then errRequired")
+							ng-template(#errRequired) Selecione una opción
+
+					.col-12.col-sm-6
+						p.text-form Estado
+						.field-control.select-control
+							select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="state" placeholder="Seleccione el estado")
+								option(value="null") Seleccione el estado
+								option(*ngFor="let state of stateList;", [value]="state.id_state") {{ state.description }}
+						span.text-invalid(*ngIf="state.errors && state.touched")
+							ng-template(*ngIf="state.errors.required; then errRequired")
+							ng-template(#errRequired) Selecione una opción
+
+					.col-12.col-sm-6
+						p.text-form Situación
+						.field-control.select-control
+							select.form-control.select([ngClass]="{'status-disabled': disabledCombo}", name="combo" formControlName="situation" placeholder="Seleccione la situación")
+								option(value="null") Seleccione la situación
+								option(*ngFor="let situation of situationList;", [value]="situation.id_state") {{ situation.description }}
+						span.text-invalid(*ngIf="state.errors && state.touched")
+							ng-template(*ngIf="state.errors.required; then errRequired")
+							ng-template(#errRequired) Selecione una opción
+
+					.col-12.col-sm-6
+						p.text-form([ngClass]="{'status-disabled': disabledCombo}") Cantidad
+						.field-control
+							input.form-control(onlyNumber, type="text" formControlName="amount" placeholder="Escriba la cantidad")
+						span.text-invalid(*ngIf="amount.errors && amount.touched")
+							ng-template(*ngIf="amount.errors.required; then errRequired else otherError")
+							ng-template(#errRequired) Ingrese volumen
+
+					.col-12.col-sm-6
+						p.text-form([ngClass]="{'status-disabled': disabledCombo}") Unidad
+						.field-control
+							input.form-control(type="text" formControlName="unit" placeholder="Escriba la unidad")
+						span.text-invalid(*ngIf="unit.errors && unit.touched")
+							ng-template(*ngIf="unit.errors.required; then errRequired else otherError")
+							ng-template(#errRequired) Ingrese unidad
+
+					.col-12.col-12.col-sm-6
+						p.text-form([ngClass]="{'status-disabled': disabledCombo}") Descripción
+						.field-control
+							input.form-control(type="text" formControlName="description" placeholder="Escriba la descripción")
+						span.text-invalid(*ngIf="description.errors && description.touched")
+							ng-template(*ngIf="description.errors.required; then errRequired else otherError")
+							ng-template(#errRequired) Ingrese descripción
+
+					.col-12.col-12.col-sm-6
+						p.text-form([ngClass]="{'status-disabled': disabledCombo}") Medida
+						.field-control
+							input.form-control(type="text" formControlName="measure" placeholder="Escriba la medida")
+						span.text-invalid(*ngIf="measure.errors && measure.touched")
+							ng-template(*ngIf="measure.errors.required; then errRequired else otherError")
+							ng-template(#errRequired) Ingrese la medida
+
+		.footer_container(*ngIf="formAdd", [class.left_container]="!data_edit")
+			.buttons
+				button.btn.btn-save(type="button", (click)="!load_save && saveData()", [disabled]="formAdd && formAdd.invalid") Guardar
+				button.pointer(mat-button, (click)="cancelForm()") Cancelar
+

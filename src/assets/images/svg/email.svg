@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.882" height="22" viewBox="0 0 28.882 22">
+    <defs>
+        <style>
+            .cls-1{fill:#d9d9d9}
+        </style>
+    </defs>
+    <g id="email" transform="translate(0 -61)">
+        <g id="Grupo_38" data-name="Grupo 38" transform="translate(0 61)">
+            <path id="Trazado_181" d="M26.344 61H2.538A2.543 2.543 0 0 0 0 63.538v16.924A2.543 2.543 0 0 0 2.538 83h23.806a2.543 2.543 0 0 0 2.538-2.538V63.538A2.543 2.543 0 0 0 26.344 61zm-.351 1.692l-11.5 11.5L2.9 62.692zM1.692 80.111v-16.23l8.15 8.08zm1.2 1.2l8.155-8.155 2.853 2.829a.846.846 0 0 0 1.194 0l2.788-2.785 8.111 8.111zm24.3-1.2L19.079 72l8.111-8.111z" class="cls-1" data-name="Trazado 181" transform="translate(0 -61)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+﻿<div class="container-dialog">
+  <!-- <h1 mat-dialog-title>Dialog with elements</h1> -->
+  <div class="content" mat-dialog-content>
+    <div class="text">¡Solicitud <b>aprobada</b> correctamente!</div>
+    <div class="sub-text">El código SAP del DM es: {{ codeSapDM }}</div>
+    <div class="info-container">
+      <img class="logo" [src]="infoIcon" alt="">
+      <div class="info-text">Recuerda que podrás revisar el detalle de esta solicitud en el <b class="historial" (click)="goHistorial()">historial</b> de tu bandeja cuando desees.</div>
+    </div>
+  </div>
+  <div class="container-buttons" mat-dialog-actions>
+    <button class="continue" (click)="onSubmitCancel()" mat-button mat-dialog-close>Volver a la bandeja</button>
+  </div>
+</div>
+

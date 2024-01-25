@@ -1,0 +1,56 @@
+ng-container(*ngIf="public; then notAuthenticated; else isAuthenticate")
+
+ng-template(#notAuthenticated)
+ng-template(#isAuthenticate)
+	ng-container(*ngIf="appSrv.template; else outlet")
+		.shadow((click)="eventShadow()")
+		ng-template(#t let-date let-focused="focused")
+			span.custom-day([class.focused]="focused",
+							[class.range]="isRange(date)",
+							[class.faded]="isHovered(date) || isInside(date)",
+							(mouseenter)="hoveredDate = date",
+							(mouseleave)="hoveredDate = null") {{ date.day }}
+		ng-template(#footerTemplate)
+			hr.my-0
+			button.btn.btn-close-calendar((click)="d.close()") {{ 'APP.close' | translate }}
+		.container-fluid.p-0
+			.container-header
+				.menu-left
+					.menu-movil-icon(*ngIf="!global.queryListMd.matches", (click)="menuCloseMovil = !menuCloseMovil")
+						custom-icon(icono="menu_movil", size="40px")
+					.logo-menu([routerLink]="'/admin/v2/dashboard'")
+						img(src="/assets/images/valnet-logo.png", alt="Valnet")
+				.container-user
+					.user-info
+						.username(routerLink="/admin/perfil") {{ global.fullName }}
+					.data-avatar([matMenuTriggerFor]="menu", [class.d-none]="!global.queryListMd.matches")
+						.avatar
+							custom-icon.profile(icono="profile_v2", size="40px", (click)="goToPerfil()")
+						custom-icon.icon.red.icon-session(icono="dropdown", size="12px")
+					mat-menu(#menu="matMenu")
+						button(mat-menu-item, [routerLink]="['/admin/logout']")
+							span {{ 'APP.close_session' | translate }}
+		.shadow-menu(*ngIf="!global.queryListMd.matches && !menuCloseMovil", (click)="menuCloseMovil = !menuCloseMovil")
+		.menu-movil(*ngIf="!global.queryListMd.matches", [class.hidden]="menuCloseMovil")
+			.user(routerLink="/admin/perfil", (click)="menuCloseMovil = !menuCloseMovil")
+				.avatar
+					img(src="/assets/images/img-profile.png")
+				.user-info
+					span Hola
+					.username {{ global.fullName }}
+				custom-icon(icono="dropdown", size="11px")
+			.menu-web.movil(*ngIf="!global.queryListMd.matches", [class.menu-collapse]="false")
+				menu-pacas.menu-pacas([permissionUser]="permissionUser", [menuClose]="false", [movil]="true" , [responsive]="!global.queryListMd.matches", (selectOption)="menuCloseMovil = !menuCloseMovil")
+			.close-session(routerLink="/admin/logout", (click)="menuCloseMovil = !menuCloseMovil")
+				custom-icon(icono="close_session", size="22px")
+				span Cerrar Sesión
+		.container-fluid.p-0.d-flex.container-app
+			.menu-web(*ngIf="global.queryListMd.matches", [class.menu-collapse]="menuClose",  [class.menu-absolute]="!menuClose")
+				menu-pacas.menu-pacas([permissionUser]="permissionUser", [menuClose]="menuClose")
+			.button-menu(*ngIf="global.queryListMd.matches", [class.closed]="menuClose", (click)="clickButtonMenu()")
+				custom-icon(icono="dropdown", size="11px")
+			.contenido#content-app((scroll)="onScroll($event)")
+				router-outlet((activate)="onActivate($event, '2')")
+		app-loading
+ng-template(#outlet)
+	router-outlet((activate)="onActivate($event, '3')")

@@ -1,0 +1,136 @@
+@import './../../../../assets/scss/variables';
+@import './../../../../assets/scss/mixins';
+$menu-size    : 1.2rem;
+$menu-size-md : 1.2rem;
+$color-menu : #17100D;
+
+.barhead {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    height: 130px;
+    @include breakpoint('xs') {
+        height: 75px;
+    }
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    @include breakpoint(0, 768) {
+
+    }
+    .content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        .logo {
+            cursor: pointer;
+            margin-left: 24px;
+            background-size: contain;
+            background-position: center;
+            font-size: 1px;
+            display: block;
+            height: 66px;
+            @include breakpoint('xs') {
+                width: 150px;
+            }
+            @include breakpoint('sm') {
+                width: 140px;
+            }
+            @include breakpoint('xl') {
+                width: 186px;
+            }
+        }
+        ul.menu {
+            display: none;
+            align-items: flex-end;
+            margin-bottom: 0;
+            height: 100%;
+            list-style: none;
+            @include breakpoint('sm') {
+                display: none;
+            }
+            @include breakpoint('xl') {
+                display: flex;
+            }
+            li {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 0 12px;
+                @include breakpoint('sm') {
+                    padding: 0 10px;
+                }
+                @include breakpoint('md') {
+                    padding: 0 24px;
+                }
+                a {
+                    font-weight: 500;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.4;
+                    letter-spacing: normal;
+                    font-family: "AvenirMedium", Arial, Helvetica, sans-serif;
+                    font-size: $menu-size;
+                    display: flex;
+                    align-items: center;
+                    color: $color-menu;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    text-decoration: none;
+                    outline: none;
+                    height: 100%;
+                    &.active, &:hover {
+                        padding-top: 4px;
+                        color: $red;
+                        border-bottom: 4px $red solid;
+                    }
+                    @include breakpoint('md') {
+                        font-size: $menu-size-md;
+                    }
+                }
+            }
+        }
+        .login {
+            color: $color-menu;
+            font-size: $menu-size;
+            @include breakpoint('md') {
+                font-size: $menu-size-md;
+            }
+            height: 100%;
+            padding: 0 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            @include breakpoint('xl') {
+                background: rgba(239, 239, 239, 0.62);
+            }
+            .icon {
+                img {
+                    width: 28px;
+                    margin: 0px;
+                    @include breakpoint('xl') {
+                        width: 20px;
+                        margin: 10px;
+                    }
+                }
+            }
+            &:hover {
+                background: #d9d9d9;
+            }
+            .text-session {
+                display: block;
+                @include breakpoint('xs') {
+                    display: none;
+                }
+                @include breakpoint('sm') {
+                    display: none;
+                }
+                @include breakpoint('xl') {
+                    display: block;
+                }
+            }
+        }
+    }
+}

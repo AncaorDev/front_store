@@ -1,0 +1,11 @@
+
+<div class="barhead">
+  <div class="content">
+    <div class="logo" [routerLink]="'/'"></div>
+    <div class="spacer"></div>
+    <ul class="menu">
+      <li *ngFor="let route of routes; let i = index"><a [routerLink]="route.link" routerLinkActive="active">{{ route.name }}</a></li>
+    </ul><a class="login" [routerLink]="'admin'">
+      <div class="icon"><img src="./assets/images/svg/user.svg"></div><span class="text-session">Iniciar Sesión</span></a>
+  </div>
+</div>

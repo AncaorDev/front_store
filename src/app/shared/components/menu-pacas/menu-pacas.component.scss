@@ -1,0 +1,119 @@
+@import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/animations';
+
+.rectangulo-swiper {
+    max-width: 250px;
+    height: auto !important;
+}
+
+ul.main-menu {
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+    &.menu-collapse {
+        max-width: 70px;
+        min-width: 70px;
+        span {
+            display: none;
+        }
+        .option__header__rigth {
+            display: none;
+        }
+        .option__submenu {
+            display: none;
+        }
+        .option__link {
+            max-width: 42px;
+        }
+    }
+    .option {
+        list-style-type: none;
+        margin: 12px 0px;
+        &__link, a {
+            &.active {
+                background: $gray_1;
+            }
+            color: $steel_gray;
+            padding: 10px 12px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 8px;
+            span {
+                margin: 0 0 0 6px;
+                font-size: 14px;
+                font-family: 'AvenirMedium';
+                font-weight: 500;
+            }
+            &:hover {
+                background: $gray_1;
+            }
+        }
+        &__header {
+            cursor: pointer;
+            display: flex !important;
+            justify-content: space-between !important;
+            &__left {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            &:hover {
+                background: transparent !important;
+            }
+        }
+        &__submenu, ul {
+            transition: max-height .2s linear;
+            list-style-type: none;
+            padding-left: 0;
+            overflow: hidden;
+            overflow-anchor: none;
+            max-height: 500px;
+            &__item,li {
+                &__link {
+                    span {
+                        padding-left: 23px;
+                    }
+                }
+            }
+            &__hidden {
+                max-height: 0 !important;
+            }
+        }
+    }
+}
+
+custom-icon {
+    &.left {
+        ::ng-deep .mat-icon {
+            width: 16px !important;
+            height: 16px !important;
+        }
+    }
+    &.right {
+        ::ng-deep .mat-icon {
+            width: 16px !important;
+            height: 16px !important;
+        }
+    }
+}
+
+.menu-bottom {
+    width: 100%;
+}
+
+.swiper-button-prev {
+    width: 17px;
+    left: 0px;
+    &:after {
+        font-size: 22px;
+    }
+}
+
+.swiper-button-next {
+    width: 17px;
+    right: 0px;
+    &:after {
+        font-size: 22px;
+    }
+}

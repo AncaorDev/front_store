@@ -1,0 +1,74 @@
+.editing {
+	.cls-1 {
+		fill: $red !important;
+	}
+}
+
+.red {
+	.cls-1 {
+		fill: $red !important;
+	}
+	.class-icon{
+		fill: $red !important;
+	}
+	.stroke {
+		stroke: $red !important;
+	}
+}
+
+.white {
+	.cls-1 {
+		fill: #ffffff !important;
+	}
+	.class-icon {
+		fill: #ffffff !important;
+	}
+}
+
+.gris {
+	.cls-1 {
+		fill:#3d4550 !important;
+	}
+
+	.class-icon{
+		fill:#3d4550 !important;
+	}
+}
+
+.disabled {
+	.cls-1 {
+		opacity: .5;
+	}
+
+	.class-icon{
+		opacity: .5;
+	}
+}
+
+
+.active {
+    .icon_permission {
+        fill: $red !important;
+    }
+	.stroke {
+		stroke: $red !important;
+	}
+}
+
+.gray_light {
+	.icon_permission {
+        fill: $gray_3  !important;
+    }
+	.stroke {
+		stroke: $gray_3 !important;
+	}
+}
+
+.gray {
+	.icon_permission {
+        fill: $steel_gray !important;
+    }
+	.stroke {
+		stroke: $steel_gray !important;
+	}
+}

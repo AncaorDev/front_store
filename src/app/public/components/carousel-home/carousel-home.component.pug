@@ -1,0 +1,13 @@
+swiper.w-100([config]="configCard")
+  .swiper-wrapper
+    .swiper-slide.column(*ngFor="let elemento of elementos")
+      .features
+        img.prog-icon(src="{{ elemento.logo }}")
+        .container-text
+          span.sub-feature {{ elemento.sub }}
+          div
+            p.text {{ elemento.text1 }}
+            p.text {{ elemento.text2 }}
+      .celular-small
+        img(src="{{ elemento.cel }}")
+  .swiper-pagination

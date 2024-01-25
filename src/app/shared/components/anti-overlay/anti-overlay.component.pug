@@ -1,0 +1,168 @@
+﻿.anti-overlay2(*ngIf="data.id === 2")
+    .white-container
+        button.btn_new_order.btn.btn-danger Nuevo Pedido
+.anti-overlay3(*ngIf="data.id === 3")
+    .white-container
+        .see-more Ver más despachos
+.anti-overlay5(*ngIf="data.id === 5")
+    .white-container
+        .history-tooltip Estas viendo los despachos activos. Para ver un rango de fechas anterior ingresa al historial.
+        div.button-historial
+            custom-icon(icono="circular_clock")
+            span Historial
+.anti-overlay10(*ngIf="data.id === 10")
+    .white-container
+        custom-icon.right-arrow(icono="arrow_right_redesign")
+.anti-overlay12(*ngIf="data.id === 12")
+    .arrow-down
+    .white-container
+        .market-info
+            .info-window-top
+                .top-title
+                    .title-left
+                        .item-product {{forcedPositionTracking.type}}
+                        .item-design {{forcedPositionTracking.material}}
+                    .title-right
+                        .item-volume(*ngIf="forcedPositionTracking.type === 'CONCRETO' || forcedPositionTracking.type === 'Concreto' || forcedPositionTracking.type === 'concreto'") {{forcedPositionTracking.quantity_dispatch}} / {{forcedPositionTracking.quantity}} {{ forcedPositionTracking.route }}
+                        .item-volume(*ngIf="forcedPositionTracking.type !== 'CONCRETO' && forcedPositionTracking.type !== 'Concreto' && forcedPositionTracking.type !== 'concreto'") {{forcedPositionTracking.quantity}} {{ forcedPositionTracking.route }}
+                .top-body
+                    .body-left
+                        custom-icon.window-drop(icono="reverse_drop_green")
+                        .window-drop-number([ngClass]="{'short' : forcedPositionTracking.order < 10, 'large' : forcedPositionTracking.order >= 10 }") {{ forcedPositionTracking.order }}
+                        custom-icon.window-drop(icono="{{ forcedPositionTracking.greenIcon }}")
+                        .order-message {{forcedPositionTracking.order_message}}
+                    .body-right
+                        //- .body-top Llegada estimada
+                        //- .body-bottom 3:15 - 4:10 PM
+            //- .info-window-mid
+            //-     .container-start
+            //-         custom-icon.window-picture(icono="window_profile")
+            //-         .container-mid
+            //-             .mid-top Daniel Roberto Perez (T7X903)
+            //-             .mid-bottom Transportista
+            //-     custom-icon.whassap(icono="whassap")
+            .info-window-bottom
+                .bottom-top
+                    .strong-text Detalles del despacho
+                    .small-text Placa del vehículo: {{forcedPositionTracking.nro_material}}
+                    .small-text(*ngIf="forcedPositionTracking.type === 'CONCRETO' || forcedPositionTracking.type === 'Concreto' || forcedPositionTracking.type === 'concreto'") Volumen {{forcedPositionTracking.order_message}}: {{ forcedPositionTracking.quantity_dispatch }} {{ forcedPositionTracking.route }} | Despacho {{ forcedPositionTracking.position }} de {{ forcedPositionTracking.dispatch_order_length }}
+                    .small-text(*ngIf="forcedPositionTracking.type !== 'CONCRETO' && forcedPositionTracking.type !== 'Concreto' && forcedPositionTracking.type !== 'concreto'") Volumen {{forcedPositionTracking.order_message}}: {{ forcedPositionTracking.quantity }} {{ forcedPositionTracking.route }}
+                    .small-text Volumen total del pedido: {{forcedPositionTracking.quantity}} {{ forcedPositionTracking.route }}
+                //- .bottom-mid
+                //-     .slider-back
+                //-         .slider-front.green-front([ngStyle]="{'width' : '60%', 'height' : '2px' }")
+                //-         custom-icon.small-slider-circle(icono="small_slider_circle")
+                //-         .circle.green-circle([ngStyle]="{'top' : '-10px', 'left' : '60%' }")
+                //-         custom-icon.ping(icono="pin")
+                //-     .slider-text
+                //-         .info-slider Dino Chiclayo
+                //-         .info-slider Obra
+                .bottom-bottom
+                    .container-left.finalized
+                        .container-trails
+                            custom-icon.trail(icono="trail")
+                            custom-icon.trail-suspension(icono="trail_suspension")
+                            custom-icon.trail-suspension(icono="trail_suspension")
+                            custom-icon.trail-suspension(icono="trail_suspension")
+                        .container-trails
+                            custom-icon.basic-ping(icono="pin2")
+                    .container-right
+                        .container-progress
+                            .progress-left
+                                .progress-info.progress-space
+                                    .top-info
+                                        .ubication
+                                            .ubication-first ORIGEN:
+                                            .ubication-second {{forcedPositionTracking.origin}}
+                                        .time {{forcedPositionTracking.origin_time}}
+                                    //- .bottom-info {{forcedPositionTracking.work_address}}
+                                .progress-info
+                                    .top-info
+                                        .ubication
+                                            .ubication-first DESTINO:
+                                            .ubication-second {{forcedPositionTracking.destiny}}
+                                        .time {{forcedPositionTracking.destiny_time}}
+                                    .bottom-info {{forcedPositionTracking.work_address}}
+    img.mixer(src="/assets/images/overlay-mixer-selected.jpg")
+.anti-overlay13(*ngIf="data.id === 13")
+    .white-container
+        .web.full-width
+            img.left-path(*ngIf="!check", src="/assets/images/overlay-left-path1.jpg", (click)="checkChange(false)")
+        .tablet.full-width
+            img.left-path(*ngIf="!check", src="/assets/images/overlay-left-path-tablet1.jpg", (click)="checkChange(false)")
+.anti-overlay135(*ngIf="data.id === 14")
+    .white-container
+        .web.full-width
+            img.left-path(*ngIf="check", src="/assets/images/overlay-left-path2.jpg", (click)="checkChange(true)")
+        .tablet.full-width
+            img.left-path(*ngIf="check", src="/assets/images/overlay-left-path-tablet2.jpg", (click)="checkChange(true)")
+.anti-overlay14(*ngIf="data.id === 14")
+    img.mixer(src="/assets/images/overlay-mixer-initial.jpg")
+.anti-overlay154(*ngIf="data.id === 154")
+    .arrow-up
+    .white-container
+        .market-info
+            .info-window-top
+                .top-title
+                    .title-left
+                        .item-product {{forcedPositionTracking.type}}
+                        .item-design C175-MS-H57-A5D
+                    .title-right
+                        .item-volume(*ngIf="forcedPositionTracking.type === 'CONCRETO' || forcedPositionTracking.type === 'Concreto' || forcedPositionTracking.type === 'concreto'") 5.5 / 55.0 {{ forcedPositionTracking.route }}
+                .top-body
+                    .body-left
+                        custom-icon.window-drop(icono="reverse_drop_green")
+                        .window-drop-number([ngClass]="{'short' : forcedPositionTracking.order < 10, 'large' : forcedPositionTracking.order >= 10 }") 6
+                        custom-icon.window-drop(icono="{{ forcedPositionTracking.greenIcon }}")
+                        .order-message En Obra
+                    .body-right
+                        //- .body-top Llegada estimada
+                        //- .body-bottom 3:15 - 4:10 PM
+            //- .info-window-mid
+            //-     .container-start
+            //-         custom-icon.window-picture(icono="window_profile")
+            //-         .container-mid
+            //-             .mid-top Daniel Roberto Perez (T7X903)
+            //-             .mid-bottom Transportista
+            //-     custom-icon.whassap(icono="whassap")
+            .info-window-bottom
+                .bottom-top
+                    .strong-text Detalles del despacho
+                    .small-text Placa del vehículo: {{forcedPositionTracking.nro_material}}
+                    .small-text(*ngIf="forcedPositionTracking.type === 'CONCRETO' || forcedPositionTracking.type === 'Concreto' || forcedPositionTracking.type === 'concreto'") En Obra: 5.5 {{ forcedPositionTracking.route }} | Despacho 6 de 7
+                    .small-text Volumen total del pedido: 55.0 {{ forcedPositionTracking.route }}
+                //- .bottom-mid
+                //-     .slider-back
+                //-         .slider-front.green-front([ngStyle]="{'width' : '60%', 'height' : '2px' }")
+                //-         custom-icon.small-slider-circle(icono="small_slider_circle")
+                //-         .circle.green-circle([ngStyle]="{'top' : '-10px', 'left' : '60%' }")
+                //-         custom-icon.ping(icono="pin")
+                //-     .slider-text
+                //-         .info-slider Dino Chiclayo
+                //-         .info-slider Obra
+                .bottom-bottom
+                    .container-left.finalized
+                        .container-trails
+                            custom-icon.trail(icono="trail")
+                            custom-icon.trail-suspension(icono="trail_suspension")
+                            custom-icon.trail-suspension(icono="trail_suspension")
+                            custom-icon.trail-suspension(icono="trail_suspension")
+                        .container-trails
+                            custom-icon.basic-ping(icono="pin2")
+                    .container-right
+                        .container-progress
+                            .progress-left
+                                .progress-info.progress-space
+                                    .top-info
+                                        .ubication
+                                            .ubication-first ORIGEN:
+                                            .ubication-second {{forcedPositionTracking.origin}}
+                                        .time {{forcedPositionTracking.origin_time}}
+                                    //- .bottom-info {{forcedPositionTracking.work_address}}
+                                .progress-info
+                                    .top-info
+                                        .ubication
+                                            .ubication-first DESTINO:
+                                            .ubication-second {{forcedPositionTracking.destiny}}
+                                        .time {{forcedPositionTracking.destiny_time}}
+                                    .bottom-info {{forcedPositionTracking.work_address}}

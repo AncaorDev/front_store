@@ -1,0 +1,18 @@
+.content
+    .tablet-web.full-width
+        custom-icon([class.d-none]="!data.success", icono="ico_success", size="85px")
+        custom-icon([class.d-none]="data.success", icono="ico_warning", size="85px")
+    .movil.full-width
+        custom-icon([class.d-none]="!data.success", icono="ico_success_movil", size="85px")
+    p.title(*ngIf="data.title && data.title.length > 0") {{ data.title }}
+    p.message {{ data.message || '' }}
+    p.sub.message(*ngIf="data.sub_message") {{ data.sub_message || '' }}
+    .footer-modal(*ngIf="footerDefault")
+        ng-container(*ngIf="data.delete")
+            button.btn-modal(color="primary", mat-button, (click)="deleteAction()") Eliminar
+        ng-container(*ngIf="data.custom")
+            button.btn-modal(color="primary", mat-button, (click)="customAction()") {{  data.custom }}
+        a.salir(*ngIf="!data.hidden_cancel", (click)="cancelAction()") {{ data.msj_cancel || 'Cancelar' }}
+    .footer-modal.custom(*ngIf="footerCustom")
+        button.btn-modal.v1(*ngIf="data.custom1", color="primary", mat-button, (click)="customAction1()") {{ data.custom1 }}
+        button.btn-modal(*ngIf="data.custom2", color="primary", mat-button, (click)="customAction2()") {{ data.custom2 }}

@@ -1,0 +1,25 @@
+.filter
+    .tab.all([ngClass]="{ 'active' : activeAll }")
+        a((click)="allActiveF()", [routerLink]="soluciones_link") Todo
+    .tab((click)="activeCate = !activeCate; activeType = false", [ngClass]="{ 'active' : activeCate }")
+        | Por categoría
+        img.icon([ngClass]="{'rotate' : activeCate}", src="./assets/images/svg/arrow-down.svg")
+    ul.accordion([ngClass]="{'open'   : activeCate }")
+        .div
+            li(*ngFor="let cate of categorys;let i = index;")
+                a.toggle([routerLink]="soluciones_link", [queryParams]="{ category : cate.id }", routerLinkActive="active", (click)="showData(cate)")
+                    img([src]="cate.logo")
+                    span {{ cate.nombre }}
+    .tab((click)="activeType = !activeType;activeCate = false", [ngClass]="{ 'active' : activeType }")
+        | Por tipo de obra
+        img.icon([ngClass]="{'rotate' : activeType}", src="./assets/images/svg/arrow-down.svg")
+    ul.accordion([ngClass]="{'open'   : activeType }")
+        .div
+            li(*ngFor="let segment of segments;let i = index;")
+                a.toggle.plus([routerLink]="soluciones_link", [queryParams]="{ type : segment.id }", routerLinkActive="active", (click)="showData(segment)")
+                    img([src]="segment.logo")
+                    span {{ segment.nombre }}
+                ul.inner([ngClass]="{ 'show' : segment.show }")
+                    .div
+                        li(*ngFor="let cate of segments[i]?.categorys;let a = index;")
+                            a([routerLink]="soluciones_link", [queryParams]="{ type : segment.id , category : cate.id}", routerLinkActive="active", (click)="showData(cate)") {{ cate.nombre }}

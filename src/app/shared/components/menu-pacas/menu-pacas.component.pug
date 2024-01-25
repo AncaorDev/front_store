@@ -1,0 +1,24 @@
+ul.main-menu([class.menu-collapse]="menuClose")
+    li.option(*ngFor="let permission of permissionUser; let $last=last", (ngInit)="loadSubmenu($event)", [isLast]='$last')
+        ng-container(#option_header)
+            a.option__header(*ngIf="permission.group && menuClose", (click)="permission.expand = !permission.expand", [matMenuTriggerFor]="menu")
+                ng-container([ngTemplateOutlet]="content_option_header", [ngTemplateOutletContext]="{permission:permission}")
+            a.option__header(*ngIf="permission.group && !menuClose", (click)="permission.expand = !permission.expand")
+                ng-container([ngTemplateOutlet]="content_option_header", [ngTemplateOutletContext]="{permission:permission}")
+        a.option__link(*ngIf="!permission.group", [routerLink]="[permission.link]", routerLinkActive="active", (click)="responsive && selectOption.emit(true)", [class.disabled]="permission.disabled")
+            custom-icon.ico.left(icono="{{ permission.icono }}", [ngClass]="getIsUrlActive(permission) ? 'red active' : permission.disabled ? 'gray_light' : (!menuClose ? 'gray' : 'gray_light')")
+            span {{ permission.title }}
+        ul.option__submenu(*ngIf="permission.group", [ngClass]="{ 'option__submenu__hidden' : permission.expand }")
+            li.option__submenu__item(*ngFor="let item of permission.items;")
+                a.option__submenu__item__link([routerLink]="[item.link]", routerLinkActive="active", (click)="responsive && selectOption.emit(true)", [class.disabled]="item.disabled")
+                    span {{ item.title }}
+        mat-menu(#menu="matMenu")
+            button(*ngFor="let item of permission.items", mat-menu-item, [routerLink]="[item.link]", (click)="responsive && selectOption.emit(true)", [disabled]="item.disabled")
+                span {{ item.title }}
+
+ng-template(#content_option_header, let-permission='permission')
+    .option__header__left([ngClass]="getIsUrlActive(permission) ? 'red active' : permission.disabled ? 'gray_light' : permission.disabled ? 'gray_light' : (!menuClose ? 'gray' : 'gray_light')", [class.disabled]="permission.disabled")
+        custom-icon.ico.left(icono="{{ permission.icono }}")
+        span {{ permission.title }}
+    .option__header__rigth
+        custom-icon.right(icono="arrow_down_redesign2", size="12px", [ngClass]="{'rotate-180' : permission.expand, 'rotate-0' : !permission.expand }")

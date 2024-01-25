@@ -1,0 +1,24 @@
+<div class="container-fluid container-login">
+	<div class="row h-100">
+		<div class="form-login col col-lg-6">
+			<div class="logo"></div>
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+				<div class="welcome">¡BIENVENIDO!</div>
+				<div class="descrip">Por favor, ingrese a su cuenta.</div>
+				<div *ngIf="contentMsgError" class="alert alert-danger mt-5" role="alert">{{msgError}}</div>
+				<div class="form-group">
+					<input type="email" class="form-control" formControlName="email" placeholder="Correo electrónico" required>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" formControlName="password" placeholder="Contraseña" required>
+				</div>
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="chkRememberMe" formControlName="chkRememberMe">
+					<label class="form-check-label" for="chkRememberMe">Recordar contraseña</label>
+				</div>
+				<button type="submit" class="btn btn-block btn-enter" [disabled]="!loginForm.valid">Ingresar</button>
+			</form>
+		</div>
+	</div>
+</div>
+<app-loading></app-loading>

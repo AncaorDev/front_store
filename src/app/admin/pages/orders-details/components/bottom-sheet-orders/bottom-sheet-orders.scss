@@ -1,0 +1,918 @@
+@import './../../../../../../assets/scss/variables';
+
+.info-window-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    ::ng-deep .mat-tab-group {
+        width: 100%;
+        height: 100%;
+
+        .mat-tab-header {
+            width: 100%;
+            margin-top: 32px;
+
+            .mat-tab-label-container {
+                width: 100%;
+
+                .mat-tab-list {
+                    width: 100%;
+
+                    .mat-tab-labels {
+                        width: 100%;
+                        height: 24px;
+
+                        .mat-tab-label {
+                            width: 33.3%;
+                            min-width: 33.3%;
+                            height: 100%;
+
+                            font-family: "AvenirRoman";
+                            font-size: 11px;
+                            line-height: 13px;
+                            letter-spacing: 0em;
+                            text-align: center;
+
+                            color: $gray_3;
+                            text-transform: uppercase;
+                            border-bottom: 4px solid $gray_1;
+
+                            .mat-tab-label-content {
+                                margin-bottom: 4px;
+                            }
+                        }
+
+                        .mat-tab-label-active {
+                            width: 33.3%;
+                            min-width: 33.3%;
+                            height: 100%;
+
+                            font-family: "AvenirRoman";
+                            font-size: 11px;
+                            line-height: 13px;
+                            letter-spacing: 0em;
+                            text-align: center;
+
+                            color: $steel_gray;
+                            text-transform: uppercase;
+                            border-bottom: 4px solid $gray_1;
+
+                            .mat-tab-label-content {
+                                margin-bottom: 4px;
+                            }
+                        }
+                    }
+
+                    .mat-ink-bar {
+                        width: 112px;
+                        height: 4px;
+                        background-color: $light_red;
+                    }
+                }
+            }
+        }
+
+        .mat-tab-body-wrapper {
+            width: 100%;
+
+            .mat-tab-body {
+                width: 100%;
+
+                .mat-tab-body-content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    width: 100%;
+
+                    @media (min-width: 1024px) {
+                        padding-left: 16px;
+                        padding-right: 16px;
+                        padding-top: 16px;
+                    }
+
+                    .container-order {
+                        width: 100%;
+
+                        custom-icon {
+                            &.mixer {
+                                ::ng-deep .mat-icon {
+                                    width: 24px !important;
+                                    height: 17.72px !important;
+                                    color: rgba(61, 69, 80, 1);
+                                    margin-right: 9px;
+                                }
+                            }
+                        }
+
+                        .header-product {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-end;
+                            align-items: flex-end;
+
+                            font-family: "AvenirHeavy";
+                            font-size: 12px;
+                            line-height: 14px;
+                            letter-spacing: 0.02em;
+                            text-align: left;
+                            text-transform: uppercase;
+                        }
+
+                        .container-product {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            width: 100%;
+
+                            // border-radius: 6px;
+                            // box-shadow: 0px 2px 4px $gray_2;
+                            // margin-bottom: 12px;
+
+                            // &.product-border {
+                            // }
+
+                            .container-superior {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                align-items: center;
+                                width: 100%;
+
+                                padding-top: 9px;
+                                // padding-left: 16px;
+                                // padding-right: 16px;
+                                padding-bottom: 9px;
+
+                                .container-superior-web {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    // width: 100%;
+
+                                    custom-icon {
+                                        &.mixer {
+                                            ::ng-deep .mat-icon {
+                                                width: 24px !important;
+                                                height: 24px !important;
+                                                color: $steel_gray;
+                                                margin-right: 8px;
+                                            }
+                                        }
+                                    }
+
+                                    .product {
+                                        font-family: "AvenirHeavy";
+                                        font-size: 13px;
+                                        line-height: 15px;
+                                        letter-spacing: 0em;
+                                        text-align: left;
+                                        color: $steel_gray;
+                                        text-transform: uppercase;
+                                        margin-right: 18px;
+                                    }
+                                }
+
+                                .design {
+                                    @media (min-width: 0px) and (max-width: 1023.9px) {
+                                        font-family: "AvenirHeavy";
+                                        font-size: 12px;
+                                        line-height: 16.41px;
+                                        letter-spacing: 0.04em;
+                                        text-align: right;
+                                    }
+                                    @media (min-width: 1024px) {
+                                        font-family: "AvenirMedium";
+                                        font-size: 13px;
+                                        line-height: 17px;
+                                        letter-spacing: 0.04em;
+                                        text-align: right;
+                                    }
+
+                                    color: $steel_gray;
+                                    text-transform: uppercase;
+
+                                    &.design-border {
+                                        margin-right: 5px;
+                                        padding-right: 5px;
+                                        margin-right: 5px;
+                                        border-right: 0.5px solid $steel_gray;
+                                    }
+                                }
+
+                                .divider {
+                                    font-family: "AvenirMedium";
+                                    font-size: 13px;
+                                    line-height: 17px;
+                                    letter-spacing: 0.04em;
+                                    text-align: right;
+
+                                    color: $steel_gray;
+                                    margin-right: 5px;
+                                }
+
+                                .volume {
+                                    @media (min-width: 0px) and (max-width: 1023.9px) {
+                                        font-family: "AvenirMedium";
+                                        font-size: 12px;
+                                        line-height: 19.12px;
+                                        letter-spacing: 0.04em;
+                                        text-align: right;
+                                    }
+                                    @media (min-width: 1024px) {
+                                        font-family: "AvenirMedium";
+                                        font-size: 13px;
+                                        line-height: 17px;
+                                        letter-spacing: 0.04em;
+                                        text-align: right;
+                                    }
+
+                                    color: $steel_gray;
+                                    text-transform: uppercase;
+                                }
+
+                                .volume_unit {
+                                    font-family: "AvenirMedium";
+                                    font-size: 13px;
+                                    line-height: 17px;
+                                    letter-spacing: 0.04em;
+                                    text-align: right;
+
+                                    color: $steel_gray;
+                                }
+                            }
+
+                            .container-inferior {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-start;
+                                align-items: flex-start;
+
+                                @media (min-width: 0px) and (max-width: 1023.9px) {
+                                    width: 95%;
+                                }
+                                @media (min-width: 1024px) {
+                                    width: 100%;
+                                }
+
+                                &.path {
+                                    padding-top: 12px;
+                                    padding-left: 16px;
+                                    padding-right: 16px;
+                                }
+                                &.order {
+                                    padding-top: 12px;
+                                    &.order-regular {
+                                        padding-left: 16px;
+                                        padding-right: 16px;
+                                    }
+
+                                    &.order-rapimix {
+                                        padding-bottom: 16px;
+                                    }
+                                }
+                                &.finalized {
+                                    @media (min-width: 1024px) {
+                                        padding-top: 12px;
+                                        padding-left: 16px;
+                                        padding-right: 16px;
+                                    }
+                                }
+
+                                &.border-finalized {
+                                    border-bottom: 1px solid #E9E9E9;
+                                }
+
+                                .tracking-header {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    height: 63px;
+                                    width: 100%;
+                                    background-color: #FBFBFB;
+                                    padding-left: 16px;
+                                    padding-right: 16px;
+                                    padding-top: 12px;
+                                    border-bottom: 1px solid $gray_1;
+
+                                    .header-section {
+                                        display: flex;
+                                        flex-direction: column;
+                                        // justify-content: space-evenly;
+                                        // align-items: center;
+                                        height: 100%;
+
+                                        custom-icon {
+                                            &.trail {
+                                                ::ng-deep .mat-icon {
+                                                    width: 11px !important;
+                                                    height: 11px !important;
+                                                    margin-bottom: 7px;
+                                                }
+                                            }
+                                            &.pin2 {
+                                                ::ng-deep .mat-icon {
+                                                    width: 9.45px !important;
+                                                    height: 13px !important;
+                                                    margin-bottom: 5px;
+                                                }
+                                            }
+                                        }
+
+                                        .text-title {
+                                            font-family: "AvenirHeavy";
+                                            font-size: 8px;
+                                            line-height: 9px;
+                                            letter-spacing: 0.04em;
+                                            text-align: center;
+                                            color: $steel_gray;
+                                            text-transform: uppercase;
+                                            margin-bottom: 4px;
+                                        }
+
+                                        .header-info {
+                                            font-family: "AvenirMedium";
+                                            font-size: 8px;
+                                            line-height: 9px;
+                                            letter-spacing: 0em;
+                                            text-align: center;
+                                            color: $steel_gray;
+                                            text-transform: uppercase;
+                                        }
+                                    }
+                                }
+
+                                .tracking-sub-header {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    height: 43px;
+                                    width: 100%;
+                                    background-color: #FBFBFB;
+                                    padding-left: 16px;
+                                    padding-right: 16px;
+                                    padding-top: 10px;
+                                    padding-bottom: 10px;
+                                    border-bottom: 1px solid $gray_1;
+
+                                    .sub-header-text {
+                                        font-family: "AvenirHeavy";
+                                        font-size: 8px;
+                                        line-height: 9px;
+                                        letter-spacing: 0em;
+                                        text-align: center;
+                                        color: $steel_gray;
+                                    }
+                                }
+
+                                .tracking-info {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 100%;
+                                    padding-left: 16px;
+                                    padding-right: 16px;
+                                    background-color: $white;
+
+                                    &.border-finalized {
+                                        border-bottom: 1px solid #E9E9E9;
+                                    }
+
+                                    .info-container {
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        width: 100%;
+                                        padding-top: 12px;
+                                        padding-bottom: 12px;
+                                        border-bottom: 1px solid $gray_1;
+
+                                        font-family: "AvenirMedium";
+                                        font-size: 10px;
+                                        line-height: 12px;
+                                        letter-spacing: 0.04em;
+                                        text-align: left;
+                                    }
+                                }
+
+                                .finalized-title {
+                                    font-family: "AvenirRoman";
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    letter-spacing: 0.04em;
+                                    text-align: left;
+                                    color: $steel_gray;
+                                    width: 100%;
+                                    margin-bottom: 10px;
+                                }
+
+                                .container-info-inferior {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: flex-start;
+                                    width: 100%;
+
+                                    .container-left {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: flex-start;
+                                        align-items: flex-start;
+                                        width: 21px;
+                                        height: 100%;
+
+                                        &.path {
+                                            margin-right: 17.5px;
+                                        }
+
+                                        &.order {
+                                            &.order-left-regular {
+                                                margin-right: 17.5px;
+                                            }
+
+                                            // &.order-left-rapimix {
+                                            // }
+                                        }
+
+                                        &.finalized {
+                                            margin-top: 5px;
+                                            margin-right: 17.5px;
+                                        }
+
+                                        .container-drops {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: flex-start;
+                                            align-items: flex-start;
+                                            width: 100%;
+                                            position: relative;
+
+                                            &.border-auxiliar-drop {
+                                                border-bottom: 1px solid #E9E9E9;
+                                            }
+
+                                            custom-icon {
+                                                &.big {
+                                                    &.drop-path {
+                                                        margin-bottom: 16px;
+                                                    }
+                                                    &.drop-order {
+                                                        // margin-bottom: 8px;
+                                                        // padding-left: 16px;
+
+                                                        &.drop-ceiling {
+                                                            // margin-top: 8px;
+                                                        }
+                                                    }
+                                                    &.drop-finalized {
+                                                        margin-bottom: 16px;
+                                                    }
+                                                }
+
+                                                &.drop {
+                                                    ::ng-deep .mat-icon {
+                                                        width: 24px !important;
+                                                        height: 24px !important;
+                                                        color: $steel_gray;
+                                                        margin-right: 8px;
+                                                    }
+                                                }
+                                            }
+
+                                            .drop-number {
+                                                &.short {
+                                                    position: absolute;
+                                                    top: 4px;
+                                                    left: 8px;
+                                                }
+
+                                                &.large {
+                                                    position: absolute;
+                                                    top: 4px;
+                                                    left: 4px;
+                                                }
+
+                                                &.number-rapimix {
+                                                    padding-left: 16px;
+                                                }
+
+                                                &.drop-number-ceiling {
+                                                    margin-top: 8px;
+                                                }
+
+                                                font-family: "AvenirHeavy";
+                                                font-size: 12px;
+                                                line-height: 14px;
+                                                letter-spacing: 0em;
+                                                text-align: center;
+                                                color: $white;
+                                            }
+
+                                            .drop-divider {
+                                                &.path {
+                                                    width: 0px;
+                                                    height: 32px;
+                                                }
+
+                                                &.order {
+                                                    width: 0px;
+                                                    height: 14px;
+
+                                                    &.on-time-divider {
+                                                        width: 0px;
+                                                        height: 14px;
+                                                    }
+
+                                                    &.divider-kidnapping {
+                                                        width: 0px;
+                                                        height: 33px;
+                                                    }
+                                                }
+
+                                                border-left: 0.5px solid $steel_gray;
+                                                margin-left: 11.49px;
+                                            }
+                                        }
+
+                                        .container-trails {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: flex-start;
+                                            align-items: flex-start;
+                                            width: 100%;
+                                            position: relative;
+
+                                            custom-icon {
+                                                &.trail {
+                                                    ::ng-deep .mat-icon {
+                                                        width: 8px !important;
+                                                        height: 8px !important;
+                                                        margin-bottom: 7px;
+                                                        margin-left: 5px;
+                                                    }
+                                                }
+
+                                                &.trail-suspension {
+                                                    ::ng-deep .mat-icon {
+                                                        width: 3px !important;
+                                                        height: 3px !important;
+                                                        margin-bottom: 4.13px;
+                                                        margin-left: 8px;
+                                                    }
+                                                }
+
+                                                &.ping {
+                                                    ::ng-deep .mat-icon {
+                                                        width: 9.45px !important;
+                                                        height: 13px !important;
+                                                        margin-top: 2px;
+                                                        margin-bottom: 7px;
+                                                        margin-left: 5px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .container-right {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: flex-start;
+                                        align-items: flex-start;
+                                        width: 100%;
+                                        height: 100%;
+
+                                        .container-progress {
+                                            &.path {
+                                                display: flex;
+                                                flex-direction: row;
+                                                justify-content: flex-start;
+                                                align-items: flex-start;
+                                                width: 100%;
+                                                height: 48px;
+                                                margin-bottom: 8px;
+                                            }
+
+                                            &.order {
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: flex-start;
+                                                align-items: flex-start;
+                                                margin-bottom: 8px;
+
+                                                &.on-time {
+                                                    width: 100%;
+                                                    height: 33px;
+                                                }
+
+                                                &.kidnapping {
+                                                    width: 100%;
+                                                    height: 50px;
+                                                }
+                                            }
+
+                                            &.finalized {
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: flex-start;
+                                                align-items: flex-start;
+                                                width: 100%;
+                                                height: 100%;
+                                            }
+
+                                            &.border-auxiliar {
+                                                border-bottom: 1px solid #E9E9E9;
+                                            }
+
+                                            .progress-left {
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: flex-start;
+                                                align-items: flex-start;
+
+                                                &.path {
+                                                    width: 65%;
+                                                    height: 100%;
+                                                }
+
+                                                &.order {
+                                                    width: 100%;
+                                                    height: 100%;
+                                                }
+
+                                                &.finalized {
+                                                    width: 100%;
+                                                    height: 100%;
+                                                }
+
+                                                .left-info {
+                                                    font-family: "AvenirRoman";
+                                                    font-size: 12px;
+                                                    line-height: 16px;
+                                                    letter-spacing: 0.04em;
+                                                    text-align: left;
+                                                    color: $steel_gray;
+                                                    width: 100%;
+
+                                                    &.path {
+                                                        margin-bottom: 8px;
+                                                    }
+
+                                                    &.order {
+                                                        margin-bottom: 8px;
+
+                                                        // &.order-right-regular {
+                                                        // }
+
+                                                        &.order-right-rapimix {
+                                                            padding-left: 33.5px; //17.5 + 16 = 33.5
+                                                            padding-right: 16px;
+                                                        }
+                                                    }
+
+                                                    &.finalized {
+                                                        display: flex;
+                                                        flex-direction: row;
+                                                        justify-content: space-between;                                                                    align-items: center;
+                                                        width: 100%;
+                                                        margin-bottom: 18px;
+                                                        text-transform: uppercase;
+                                                        padding-right: 10px;
+                                                    }
+
+                                                    overflow: hidden;
+                                                    white-space: nowrap;
+                                                    text-overflow: ellipsis;
+                                                }
+
+                                                .left-slider {
+                                                    width: 100%;
+
+                                                    .slider-back {
+                                                        position: relative;
+                                                        width: 100%;
+                                                        height: 2px;
+                                                        border-radius: 10px;
+                                                        background-color: $gray_2;
+
+                                                        .slider-front {
+                                                            position: absolute;
+                                                            top: 0;
+                                                            left: 0;
+                                                            // width: 100%;
+                                                            // height: 2px;
+                                                            border-radius: 10px;
+
+                                                            &.black-front {
+                                                                background-color: $steel_gray;
+                                                            }
+
+                                                            &.green-front {
+                                                                background-color: $green;
+                                                            }
+                                                        }
+
+                                                        custom-icon {
+                                                            position: absolute;
+                                                            top: -1px;
+                                                            left: 0;
+                                                            &.small-slider-circle {
+                                                                ::ng-deep .mat-icon {
+                                                                    width: 4px !important;
+                                                                    height: 4px !important;
+                                                                }
+                                                            }
+                                                        }
+
+                                                        .circle {
+                                                            position: absolute;
+
+                                                            &:before {
+                                                                content: ' \25CF';
+                                                                font-size: 15px;
+                                                            }
+
+                                                            &.black-circle {
+                                                                color: $steel_gray;
+                                                            }
+
+                                                            &.green-circle {
+                                                                color: $green;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .container-kidnapping {
+                                                display: flex;
+                                                flex-direction: row;
+                                                justify-content: flex-start;
+                                                align-items: center;
+                                                width: 96%;
+                                                height: 24px;
+                                                background: $baby_red;
+                                                margin-bottom: 8px;
+                                                padding-left: 8px;
+                                                padding-right: 8px;
+                                                border-radius: 4px;
+
+                                                custom-icon {
+                                                    &.exclamation {
+                                                        ::ng-deep .mat-icon {
+                                                            width: 16px !important;
+                                                            height: 16px !important;
+                                                            margin-right: 5px;
+                                                        }
+                                                    }
+                                                }
+
+                                                .kidnapping-info {
+                                                    margin-right: 4px;
+                                                    color: $light_red;
+
+                                                    &.normal {
+                                                        font-family: "AvenirRoman";
+                                                        font-size: 10px;
+                                                        line-height: 12px;
+                                                        letter-spacing: 0em;
+                                                        text-align: left;
+                                                    }
+
+                                                    &.time {
+                                                        font-family: "AvenirMedium";
+                                                        font-size: 10px;
+                                                        line-height: 14px;
+                                                        letter-spacing: 0em;
+                                                        text-align: left;
+                                                    }
+                                                }
+                                            }
+
+                                            .progress-right {
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: flex-start;
+                                                align-items: flex-end;
+                                                // padding-top: 7px;
+                                                padding-right: 15px;
+                                                width: 35%;
+                                                height: 100%;
+
+                                                custom-icon {
+                                                    &.checkbox {
+                                                        ::ng-deep .mat-icon {
+                                                            width: 24px !important;
+                                                            height: 24px !important;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .text-error {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        height: 98px;
+                        width: 100%;
+                        font-family: "AvenirMedium";
+                        font-size: 12px;
+                        line-height: 15px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #333333;
+                        background-color: $white;
+                    }
+
+                    .container-intermediate {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 48px;
+                        background-color: $gray_1;
+
+                        .text-intermediate {
+                            font-family: "AvenirHeavy";
+                            font-size: 12px;
+                            line-height: 14px;
+                            letter-spacing: 0.02em;
+                            text-align: right;
+                            color: $light_red;
+                            margin-right: 15px;
+                        }
+
+                        custom-icon {
+                            &.arrow {
+                                ::ng-deep .mat-icon {
+                                    width: 10px !important;
+                                    height: 14px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Angular material bottom sheet
+::ng-deep .mat-bottom-sheet-container-xlarge, ::ng-deep .mat-bottom-sheet-container-large, ::ng-deep .mat-bottom-sheet-container-medium, ::ng-deep .mat-bottom-sheet-container {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    // min-width: calc(100vw);
+    // max-width: calc(100vw - 128px);
+}
+
+::ng-deep .mat-accordion {
+    width: 100%;
+}
+
+::ng-deep .mat-expansion-panel {
+    width: 100%;
+
+    .mat-expansion-panel-header {
+        height: 48px !important;
+        padding: 0px 16px 0px 16px;
+        border-bottom: 1.5px solid #EAEAEA;
+
+        &.main {
+            background-color: rgba(236, 236, 236, 0.5) !important;
+        }
+
+        &.second {
+            background-color: #FBFBFB !important;
+        }
+
+        .mat-expansion-indicator {
+            color: $gray_3;
+        }
+    }
+
+    .mat-expansion-panel-body {
+        padding: 0px 0px 0px 0px !important;
+    }
+
+    &.mat-expansion-panel-spacing {
+        margin: 0px;
+    }
+}

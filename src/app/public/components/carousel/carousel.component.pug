@@ -1,0 +1,24 @@
+swiper([config]="config", *ngIf="!card")
+  .swiper-wrapper
+    .swiper-slide.column(*ngFor="let elemento of elementos", (click)="selectSolution(elemento)")
+        img(src="{{elemento.logo}}")
+        .text {{elemento.nombre}}
+        br
+  .swiper-button-next
+  .swiper-button-prev
+swiper.event([config]="configCard", *ngIf="card")
+  .swiper-wrapper
+    .swiper-slide.row.justify-content-around.flex-nowrap.angosto(*ngFor="let card of seleccion", (click)="selectEvent(card)")
+        .border
+          .info
+            .dia {{card.dia}}
+            .mes {{card.mes}}
+            .ano {{card.ano}}
+          .info
+            .module.faded
+              p {{card.titulo}}
+            .descripcion.sub Dirección:
+            .descripcion.text {{card.direccion}}
+            .descripcion.sub Hora:
+            .descripcion {{card.hora}}
+  .swiper-pagination

@@ -1,0 +1,31 @@
+div(style="position:relative;")
+    .prev
+        img(src="./assets/images/bim/arrow_left.png")
+    ngx-slick-carousel(
+        class="carousel",
+        #slickModal="slick-carousel",
+        [config]="slideConfig")
+
+        div( ngxSlickItem, *ngFor="let slide of slides", class="container-item-slide" )
+            .container-style-item-slide
+                .item-img((click)="openSolutions({ optionId: slide.filterId, masterFilterId: slide.masterFilterId, origin: 0 , id: slide.id})")
+                    img(src="{{ slide.img }}" alt="" )
+                .title-movil {{ slide.title | shortName }}
+                .title-web {{ slide.title  | shortName}}
+                .search-hover-img((click)="openSolutions({ optionId: slide.filterId, masterFilterId: slide.masterFilterId, origin: 0 , id:  slide.id })")
+                    div
+                        img(src="./assets/images/bim/lupa.png")
+    .next
+        img(src="./assets/images/bim/arrow_right.png")
+
+
+
+
+
+
+
+
+
+
+
+
