@@ -30,7 +30,7 @@ export class Dashboard2Component {
       chartType: GoogleChartType.ColumnChart,
       dataTable: [],
       options: {
-        title: 'Entradas y Salidas 2023',
+        title: 'Entradas y Salidas',
         animation: {
           duration: 1000,
           easing: 'out',
@@ -42,7 +42,7 @@ export class Dashboard2Component {
       chartType: GoogleChartType.ColumnChart,
       dataTable: [],
       options: {
-        title: 'Registros 2023',
+        title: 'Registros',
         animation: {
           duration: 1000,
           easing: 'out',
